@@ -1,0 +1,829 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/lirmm.css">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/github.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="cover" data-background="css/theme/img/background-red.jpg" data-background-repeat="no-repeat" data-background-size="cover" data-background-position="0 0" data-state="no-title-footer no-progressbar has-dark-background">
+					<h2 id="covertitle">Music separation with DNNs: making it work</h2>
+					<p id="coverauthors">
+						Fabian-Robert Stöter & Antoine Liutkus<br/>
+						Inria and LIRMM, Montpellier<br/>
+
+						<p>
+							fabian-robert.stoter@inria.fr<br />
+							<i class="fab fa-twitter"></i>faroit
+						</p>
+						<p>
+							antoine.liutkus@inria.fr<br />
+						</p>
+
+					</p>
+					<p>
+					September 23rd, 2018
+					</p>
+					<p>
+					<img src="css/theme/img/inria-cover.svg" id="inria" class="logo" alt="">
+				</section>
+
+
+<!-- Introduction
+
+In an introductory section, we will motivate the tutorial by explaining how music separation with DNN emerged with
+data-driven methods coming from machine-learning or image processing communities. This comes with machine-learning
+tricks to make methods work in practice. Meanwhile, many audio processing good practices are often forgotten or not
+correctly applied, although they are mandatory for good performance.
+• Timeline for DNN music separation
+A brief history of the topic in the bigger picture: machine learning on the one hand, source separation on the other
+hand.
+• Outline
+The baseline system: what is the state of the art? Quick literature review
+How to implement and make it work? The distinction between training and testing.
+An audio demo of the critical impact of engineering for the “same” system.
+
+-->
+
+<!-- INTRODUCTION -->
+<section>
+	<section>
+		<h1>Music source separation</h1>
+		what is source separation 1/3.<p>
+		here probably some graphics
+	</section>
+
+	<section>
+		<h1>Music source separation</h1>
+		what is source separation 2/3<p>
+
+		here probably some audio example
+	</section>
+
+	<section>
+		<h1>Music source separation</h1>
+		what is source separation 3/3<p>
+
+		here probably some applications ideas: karaoke, preprocessing for mir etc
+	</section>
+
+	<section>
+		<h1>Outline</h1>
+
+	now we introduce our outline:<p>
+	* Notations and concepts<p>
+	* Databases<p>
+	* A baseline DNN system<p>
+	* training Tricks<p>
+	* testing tricks<p>
+	</section>
+</section>
+
+<!-- NOTATIONS AND CONCEPTS -->
+<section>
+	<section>
+		<h1>Notations and concepts</h1>
+		<h2>Time-frequency representations</h2>
+	o set up the ipynb<p>
+	o for one track, display waveforms, play some audio ?<p>
+	o display spectrograms on the collab<p>
+	* explains that STFT can be understood as pre-whitening<p>
+	</section>
+
+	<section>
+		<h1>Notations and concepts</h1>
+		<h2>post-processing: filtering</h2>
+	o get spectrograms of the sources<p>
+	o display the corresponding soft-mask for vocals<p>
+	o apply it on the mixture, reconstruct and listen to the result<p>
+	* explain single channel Wiener filter through Gaussian conditioning<p>
+	</section>
+
+</section>
+
+<!-- A BRIEF HISTORY -->
+<section>
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>Harmonicity for the lead</h2>
+
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>Redundancy for the accompaniment</h2>
+		NMF
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>redundancy for the accompaniment</h2>
+		REPET
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>Redundancy for the accompaniment</h2>
+		RPCA
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2> Modeling both lead and accompaniment</h2>
+		source filter model
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>Cascaded methods</h2>
+	</section>
+
+	<section>
+		<h1>A brief history: model-driven methods</h1>
+		<h2>Fusion of methods</h2>
+	</section>
+</section>
+
+<!-- DATASETS AND EVALUATION -->
+<section>
+	<section>
+		<h1>Music separation datasets</h1>
+		<h2>Some dates and numbers</h2>
+	</section>
+
+	<section>
+		<h1>Setting up musdb</h1>
+	* presentation of musdb<p>
+	o start the collab<p>
+	o loop over some musdb tracks<p>
+	</section>
+
+	<section>
+		<h1>Evaluating quality</h1>
+		* presenting museval (bsseval v4)<p>
+		o evaluate the oracle separation on musdb test<p>
+		o compare to state of the art (sisec18)
+	</section>
+
+</section>
+
+<!-- B. The baseline system
+In this second section, we present and discuss the few concepts that are mandatory to design a source separation method.
+Each point will firstly be the focus of screencasting from an interactive notebook session, and then will also be explained
+with a theoretical presentation when appropriate.
+In all cases, the presentation is using the proposed baseline system for source separation, along with the MUSDB dataset 2 .
+• The objective of the research in music separation
+Predict masks, or source spectrograms
+• Neural nets
+Setting up a network with PYTORCH
+Automatic gradient computations ( AUTOGRAD ) and learning algorithms
+Presenting the main few important parameters of most algorithms
+• All together
+Demonstrate performance of our baseline system -->
+
+
+<section>
+	<section>
+		<h1>Deep neural networks</h1>
+		<h2>Structure</h2>
+		* Figure on cascading linear and non-linear operations<p>
+		o Simple example on MNIST with pytorch<p>
+	</section>
+
+	<section>
+		<h1>Deep neural networks</h1>
+		<h2>Training</h2>
+		* The concept of cost function + gradient descent, learning rate<p>
+		* Optimization algorithms in short<p>
+	</section>
+
+	<section>
+		<h1>Deep neural networks</h1>
+		<h2>Automatic differentiation with autograd</h2>
+		o illustration of autograd<p>
+		o putting it together: learning a MNIST digit classification net ?<p>
+	</section>
+
+	<section>
+		<h1>Baseline deep neural networks</h1>
+		DNN figure for audio unmixing<p>
+	</section>
+
+	<section>
+		<h1>Baseline deep neural networks</h1>
+		<!-- EXPERIMENT NEEDED -->
+		o Create a net, load the weights, apply it, separate<p>
+		o Evaluate quality<p>
+	</section>
+
+	<section>
+		<h1>Outline</h1>
+		* Representation<p>
+		* Structure<p>
+		* Training<p>
+		* Testing<p>
+	</section>
+
+</section>
+
+<!-- C. Tricks for training
+This part of the tutorial provides some feedback on what seems to be important to
+get good performance in practice, with a focus on the training stage. First, many
+of the tricks discussed here are not often discussed in papers because a lot
+of them are negative results that are hard to publish: interesting ideas that turn
+out ineffective yet. Second, we also show how some very simple things make a huge
+difference in practice.
+• Features
+STFT, MDCT, mel-scales, what does really matter?
+Parameters to fine tune. (framelength, hopsize, etc).
+ -->
+
+<section>
+	<section>
+		<h1>Representation</h1>
+		<h2>Perceptually weighted features</h2>
+		* Handcrafted representations: mel-scale<p>
+		o Implementation using librosa<p>
+		<!-- EXPERIMENT NEEDED -->
+		o Load weights again, test
+	</section>
+
+	<section>
+		<h1>Representation</h1>
+		<h2>Learnable features</h2>
+		* Learnable feature reduction: mel-scale<p>
+		o Implementation in pytorch<p>
+		<!-- EXPERIMENT NEEDED -->
+		o Load weights again, test
+	</section>
+
+	<section>
+		<h1>Representation</h1>
+		<h2>Comparison</h2>
+		* Display comparison results
+		<!-- EXPERIMENT NEEDED -->
+	</section>
+
+	<section>
+		<h1>Representation</h1>
+		<h2>Standardization</h2>
+		Include that here ?
+	</section>
+</section>
+
+
+<section>
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>The multilayer perceptron (MLP)</h2>
+		* basic idea<p>
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>The vanilla recurrent neural network (vRNN)</h2>
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>Advanced recurrent neural network (RNN)</h2>
+		* Long short term memory (LSTM) <p>
+		* Gated recurrent units (GRU) <p>
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>The convolutional neural network (CNN)</h2>
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>Cocktails of CNN-RNN</h2>
+		* U-NET <p>
+		* MM-densnet
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>Skip-connections</h2>
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>Generative ideas</h2>
+		* Generative models (GAN) <p>
+		* Auto-encoders
+	</section>
+
+	<section>
+		<h1>DNN structures: a quick guided tour</h1>
+		<h2>Deep clustering</h2>
+	</section>
+
+</section>
+
+<section>
+	<section>
+		<h1>Our baseline system</h1>
+		* Presentation of the architecture<p>
+		o load the model, test it<p>
+		o Check its performance<p>
+		<!-- EXPERIMENT NEEDED -->
+	</section>
+</section>
+
+
+<!-- TRAINING -->
+
+<section>
+	<section>
+		<h1>Training</h1>
+		o Setting up the whole training on the baseline as it is now<p>
+		o Launch a few epochs of training on the 30s dataset<p>
+		* Provide performance
+	</section>
+
+	<section>
+		<h1>Training</h1>
+		<h2>Target and cost function</h2>
+		* We may reuse stuff from Arie
+	</section>
+
+	<section>
+		<h1>Training</h1>
+		<h2>Data sampling</h2>
+	</section>
+
+	<section>
+		<h1>Training</h1>
+		<h2>Training algorithm and learning rate</h2>
+	</section>
+
+	<section>
+		<h1>Training</h1>
+		<h2>Normalization</h2>
+	</section>
+
+	<section>
+		<h1>Training</h1>
+		<h2>Data augmentation</h2>
+	</section>
+
+</section>
+
+
+
+<!-- D. Tricks for testing
+In this section, we pick one single system, resulting from the section above, and show how its performance can be
+dramatically improved by using just a few simple tricks at test time.
+• Reconstruct waveforms
+How a good overlap and add implementation remains a core reason for performance degradation.
+• Filter tricks
+The huge impact of epsilons again.
+Logit Wiener filters: binarization to improve separation.
+Good old bandpass filters: how to instantly get a bass estimate...
+Going stereo
+The different strategies
+Stereo for free: the Local Gaussian Model for beginners.
+Stereo tricks -->
+
+
+<section>
+	<section>
+		<h1>Testing: analysis, synthesis</h1>
+		<h2>Reconstruct waveforms correctly</h2>
+	</section>
+
+	<section>
+		<h1>Testing: analysis, synthesis</h1>
+		<h2>Window size, hopsize</h2>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Testing: mono filter tricks</h1>
+		<h2>The huge impact of epsilons</h2>
+	</section>
+
+	<section>
+		<h1>Testing: mono filter tricks</h1>
+		<h2>Logit filters</h2>
+	</section>
+
+	<section>
+		<h1>Testing: going stereo</h1>
+		<h2>First strategy: pretend it's mono</h2>
+	</section>
+
+	<section>
+		<h1>Testing: going stereo</h1>
+		<h2>Second strategy: pretend is mono twice</h2>
+	</section>
+
+</section>
+
+<section>
+	<section>
+		<h1>The local Gaussian model</h1>
+		<h2>Modelling left-right correlations</h2>
+	</section>
+
+	<section>
+		<h1>The local Gaussian model</h1>
+		<h2>Separation</h2>
+	</section>
+
+	<section>
+		<h1>The local Gaussian model</h1>
+		<h2>Expectation maximization: the big picture</h2>
+	</section>
+
+	<section>
+		<h1>The local Gaussian model</h1>
+		<h2>A look into norbert</h2>
+	</section>
+
+	<section>
+		<h1>The local Gaussian model</h1>
+		<h2>The smoothing trick</h2>
+	</section>
+</section>
+
+
+<section>
+	<section>
+		<h1>Conclusion</h1>
+		<h2>Our resulting baseline</h2>
+		* A look at our baseline<p>
+		* Performance comparison with state of the art<p>
+		o Resources
+	</section>
+
+	<section>
+		<h1>Conclusion</h1>
+		<h2>Tracks for future research</h2>
+	</section>
+
+	<section>
+		<h1>Conclusion</h1>
+		<h2>Concluding remarks</h2>
+	</section>
+
+</section>
+
+
+				<section>
+					<h1>Music Unmixing/Separation</h1>
+					<img width="45%" style="float:left" src="assets/intro1.png" alt="">
+					<img class="fragment" width="45%" src="assets/intro2.png" alt="">
+				</section>
+
+				<section>
+					<h1>Applications</h1>
+					<img width="60%" style="float:right" src="assets/karaoke.jpg" alt="">
+
+					<ul>
+						<li>Automatic Karaoke</li>
+						<li>Creative Music Production</li>
+						<li>Personal Remixing</li>
+						<li>Music Education</li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h1>Methods: the big picture</h1>
+					<div class="centered">
+						<img class="stretch" src="assets/challenges.svg" alt="">
+
+					</div>
+				</section>
+
+				<section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
+						<h1><button data-audio="assets/demotrack/mixture.m4a">▶</button></h1>
+						<h1 style="margin-top:50%; color:white">Mixture spectrogram</h1>
+						<script type="text/javascript">
+						document.addEventListener("click", function(e){ if(e.target.matches("button[data-audio]")){
+							new Audio(e.target.dataset.audio).play(); }});
+						</script>
+					</section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/vocals.jpg">
+						<h1><button data-audio="assets/demotrack/vocals.m4a">▶</button></h1>
+						<h1 style="margin-top:50%; color:white">Vocals spectrogram</h1>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
+						<h1></h1>
+						<h1 style="margin-top:50%; color:white">Mixture spectrogram</h1>
+					</section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/drums.jpg">
+						<h1></h1>
+						<h1 style="margin-top:50%; color:white">Drums spectrogram</h1>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
+						<h1></h1>
+						<h1 style="margin-top:50%; color:white">Mixture spectrogram</h1>
+					</section>
+					<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/bass.jpg">
+						<h1></h1>
+						<h1 style="margin-top:50%; color:white">Bass spectrogram</h1>
+					</section>
+				</section>
+
+				<section>
+					<h1>Classical approach: an inverse problem</h1>
+					<img class="fragment" width="100%" style="float:center" src="assets/sources_mixing_separation.svg" alt="">
+				</section>
+
+				<section>
+					<h1><font color="black">Old and</font> <font color="red">new</font></h1>
+					<img class="fragment" width="100%" style="float:center" src="assets/overview.svg" alt="">
+				</section>
+
+				<!-- <section>
+					<section>
+						<h1>Classical source models</h1>
+						<h2>Non-negative matrix factorization (NMF)</h2>
+							<img class="stretch" style="margin-left: 25%" src="https://docs.google.com/drawings/d/e/2PACX-1vS1JrZuBXyzbaLEpt_ekUHVqENMcUWZkDjvhWvQSpN4vdUAr2asfRZzL471bpoUhbSNTN7b1nPojviG/pub?w=900&h=1024" alt="">
+
+						<aside class="notes">
+							We consider the identification of redundancy in the accompaniment through the assumption that its spectrogram may be well represented by only a few components. Techniques exploiting this idea then focus on algebraic methods that decompose the mixture spectrogram into the product of a few template spectra activated over time. One way to do so is via non-negative matrix factorization (NMF) [90], [91], which incorporates non-negative constraints.
+						</aside>
+					</section>
+
+					<section>
+						<h1>Classical source models</h1>
+						<h2>Repetitive sources (REPET)</h2>
+						<img style="float:left" src="https://docs.google.com/drawings/d/e/2PACX-1vTsnQlO0NWOqGKwG1ksYtD8oYpf2exFzCkHV6pX5COfgGCmJVNhl3E64qcgoq3dJwdapgK9eXltAUIH/pub?w=720" alt="">
+
+						<ul>
+						</ul>
+						<aside class="notes">
+							the approaches based on a repetition assumption for accompaniment. In a first analysis step, repetitions are identified. Then, they are used to build an estimate for the accompaniment spectrogram and proceed to separation.
+						</aside>
+					</section>
+				</section> -->
+
+				<section>
+					<h1>Paradigma shift: data-centered design</h1>
+					<ul>
+						<li>Defining sources through examples (2015+)</li>
+						<li>Exploiting deep source-models in signal processing pipelines</li>
+					</ul>
+
+					<h2>Datasets</h2>
+					<table><thead><tr><th><strong>Dataset</strong></th><th><strong>Year</strong></th><th><strong>Reference(s)</strong></th><th><strong>Tracks</strong></th><th><strong>Dur (s)	</strong></th><th><strong>Full/stereo?</strong></th></tr></thead><tbody><tr><td><a href="http://www.mtg.upf.edu/download/datasets/mass" target="_blank" rel="noopener noreferrer">MASS<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2008</td><td>(Vinyes 2008)</td><td>9</td><td>(16 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 7)</td><td>❌ / ✔️</td></tr><tr><td><a href="https://sites.google.com/site/unvoicedsoundseparation/mir-1k" target="_blank" rel="noopener noreferrer">MIR-1K<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2010</td><td>(Hsu and Jang 2010)</td><td>1,000</td><td>8 <span class="katex"><span class="katex-mathml"></td><td>❌ / ❌</td></tr><tr><td><a href="http://www.tsi.telecom-paristech.fr/aao/en/2012/03/12/quasi/" target="_blank" rel="noopener noreferrer">QUASI<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2011</td><td>(Liutkus et. al. 2011)</td><td>5</td><td>(206 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 21)</td><td>✔️ / ✔️</td></tr><tr><td><a href="http://www.loria.fr/~aliutkus/kam/" target="_blank" rel="noopener noreferrer">ccMixter<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2014</td><td>(Liutkus et al. 2014)</td><td>50</td><td>(231 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 77)</td><td>✔️ / ✔️</td></tr><tr><td><a href="http://medleydb.weebly.com/" target="_blank" rel="noopener noreferrer">MedleyDB<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2014</td><td>(Bittner et al. 2014)</td><td>63</td><td>(206 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 121)</td><td>✔️ / ✔️</td></tr><tr><td><a href="http://mac.citi.sinica.edu.tw/ikala/" target="_blank" rel="noopener noreferrer">iKala<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td><td>2015</td><td>(Chan et al. 2015)</td><td>206</td><td>30</td><td>❌ / ❌</td></tr><tr><td><a href="/datasets/dsd100.html" class="">DSD100</a><span class="badge"></span></td><td>2015</td><td>(Ono et al. 2015)</td><td>100</td><td>(251 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 60)</td><td>✔️ / ✔️</td></tr><tr><td><a href="/datasets/musdb.html" class="">MUSDB18</a></td><td>2017</td><td>(Rafii et al. 2017)</td><td>150</td><td>(236 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo></mrow><annotation encoding="application/x-tex">\pm</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span></span> 95)</td><td>✔️ / ✔️</td></tr></tbody></table>
+				</section>
+
+				<section>
+					<section>
+						<h1>Music separation as a machine learning problem</h1>
+						<h2> Generative or discriminative </h2>
+						<img width="100%" src="assets/generative-discriminative.svg" alt="">
+					</section>
+
+					<section>
+						<h1>Music separation as a machine learning problem</h1>
+						<h2>Classification ...</h2>
+							<img width="66%" src="assets/binarymasking.svg" alt="">
+							<h4>Binary Masking</h4>
+						<h2> ... or regression ?</h2>
+							<img width="50%" src="assets/softmask.svg" alt="">
+							<h4>Softmask</h4>
+							<img width="50%" src="assets/direct.svg" alt="">
+							<h4>Magnitude Spectrogram</h4>
+					</section>
+
+					<section>
+						<h1>Music separation as a machine learning problem</h1>
+						<h2>Supervised ... </h2>
+						<img style="float:right" src="https://docs.google.com/drawings/d/e/2PACX-1vRXc_l4uNUTSOoAif8r4O-AKfAVBBMUSPVG_VMu79LjcZLb4xKLgFTVoSqVodvGetEvdeakfb4Nul-3/pub?w=400" alt="">
+						<ul>
+							<li>Single I/O: modeling sources independently</li>
+							<li>Multiple I/O: modeling sources jointly</li>
+							<li>Siamese networks, Chimera Networks</li>
+						</ul>
+
+
+						<h2>... or unsupervised ? <font color="red">(open direction)</font></h2>
+
+					</section>
+
+					<section>
+						<h1>Music separation as a machine learning problem</h1>
+						<h2>Modeling fixed-sized spectrograms ... ?</h2>
+						<ul>
+							<li>Separating chunks: straightforward reuse of image models</li>
+							<li>Batching over chunks</li>
+							<li>Fully connected, etc</li>
+						</ul>
+						<h2>... or learning dynamic models ?</h2>
+						<ul>
+							<li>Very long-term dependencies !</li>
+							<li>LSTM, CNN, etc</li>
+						</ul>
+					</section>
+				</section>
+
+
+				<!-- <section data-state="no-title-footer"  data-background-image="assets/hero_header.svg" data-background-size="80%">
+					<h1>MUS</h1>
+				</section> -->
+
+				<section>
+					<h1>A Baseline System</h1>
+					<img style="margin-left:20%" src="https://docs.google.com/drawings/d/e/2PACX-1vRXc_l4uNUTSOoAif8r4O-AKfAVBBMUSPVG_VMu79LjcZLb4xKLgFTVoSqVodvGetEvdeakfb4Nul-3/pub?w=500" alt="">
+				</section>
+
+				<section>
+					<h1>A Baseline System</h1>
+					<h2>Pre-Processing</h2>
+					<ul>
+						<li><b>Time-Frequency Transform:</b> «pre-whitening»</li>
+						<li><b>Normalization:</b> Gain Variation</li>
+						<li><b>Standardization:</b> Scale Frequency Bands</li>
+					</ul>
+
+					<h2>Post-processing</h2>
+					<ul>
+						<li>Mono Models, Filtering Stereo Signals</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>A Baseline System</h1>
+					<h2>Sampling for Training</h2>
+					<img width="400px" style="float:right" src="assets/sampling.gif" alt="">
+					<ul>
+						<li>Slicing Temporal Context
+							<ul>
+								<li>Full tracks too large (vanishing gradient)</li>
+								<li>Context usually 1-10 seconds</li>
+							</ul>
+						 </li>
+						 <li>Batch from different Tracks</li>
+						<li>Data Augmentation
+							<ul>
+								<li>Image Augmenations doesn't work</li>
+								<li>Apply Random Gains</li>
+							</ul>
+					 </li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>A Baseline System</h1>
+
+					<h2>Architectures I</h2>
+					<ul>
+						<li>Denoising Auto-Encoder<b style="color:red"> [Uhlich 2014]</b></li>
+						<li class="fragment">FCN <b style="color:red">[Chandna 2017]</b></li>
+					</ul>
+					<img class="fragment" class="stretch" style="float:right" src="assets/deconvnet.png" alt="">
+				</section>
+
+				<section>
+					<h1>A Baseline System</h1>
+					<img height="400px" style="float:right" src="assets/flow.svg" alt="">
+
+					<h2>Architectures II</h2>
+					<ul>
+						<li><b>Bidirectional LSTM <b style="color:red">[Huang 2014, Uhlich 2015, Takashi 2018]</b></b></li>
+						<li>Sequence2Sequence</li>
+						<li><b>Input (mix):</b> (sample, frames, frequency)</li>
+						<li><b>Output (targets):</b> (sample, frames, frequency, source)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>SiSEC 2018</h1>
+					<ul>
+						<li>100 train / 50 test tracks</li>
+						<li>Full length stereo</li>
+						<li>Mastered with pro. digital audio workstations</li>
+						<li>Parser and Evaluation tools in <i class="fab fa-python"></i></li>
+						<li><a ref=https://sigsep.github.io/datasets/musdb.html>https://sigsep.github.io/datasets/musdb.html</a></li>
+					</ul>
+					<img width="320px" style="float: right" src="assets/ni_logo.png" alt="">
+					<img width="700px" src="assets/hero.svg" alt="">
+					<aside class="notes">
+						maybe just mention it's used in SiSEC here and forget about the sisec slide
+					</aside>
+				</section>
+
+				<!-- <section>
+					<h1>Signal Separation Evaluation Challenge</h1>
+
+					<ul>
+						<li>Community Based Evaluation presented LVA/ICA</li>
+						<li>Roughly every 1.5 year: 2008, 2011, 2013, 2015, 2017, 2018</li>
+						<li>Different tasks supervised by individual maintainer.</li>
+						<li>No secret test set since we lack data.</li>
+						<li>Objective and Subjective Evaluation.</li>
+					</ul>
+				</section> -->
+
+				<section data-state="no-title-footer" data-background="darkred">
+					<h1 style='color:white; font-size: 3.4em; margin-top: 2em;  margin-left: 1em'>DEMO</br><i class="fa fa-volume-up"></i></h1>
+				</section>
+
+				<section>
+					<h1>How trendy is DNN based source separation?</h1>
+					<ul>
+						<li>Fully Convolutional Networks <i class="fa fa-check"></i></li>
+						<li>Batch Normalization <i class="fa fa-check"></i></li>
+						<li>Skip-Connections <i class="fa fa-check"></i></li>
+						<li>GAN <i class="fa fa-check"></i></li>
+						<li>End-to-End Timedomain (Wavenet)<i class="fa fa-check"></i></li>
+						<li style="color:gray">Capsule Networks</li>
+						<li style="color:gray">Attention</li>
+						<li style="color:gray">Reinforcement Learning</li>
+						<li style="color:gray">...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Opening considerations</h1>
+					<ul>
+						<li>Convergence of signal processing, probability theory and DL</li>
+						<li>Learning with limited amount of data</li>
+						<li>Model long term dependency</li>
+						<li>Representation learning for sound and music</li>
+						<li>Exploiting knowledge domain, user interaction</li>
+						<li>Unsupervised Learning ?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Resources</h1>
+					<ul>
+						<li>SiSEC 2018 Website: <a href="https://sisec18.unmix.app">sisec18.unmix.app</a></li>
+						<li>References and Software tools: <a href="https://sigsep.github.io">sigsep.github.io</a></li>
+					</ul>
+				</section>
+
+
+			</div>
+			<div class='footer'>
+				<img src="css/theme/img/inria-bottom.svg" alt="Logo" />
+				<div id="middlebox">Deep Learning for Music Unmixing</div>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				minScale: 1,
+				maxScale: 5,
+				transition: 'none', //
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math-katex/math-katex.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

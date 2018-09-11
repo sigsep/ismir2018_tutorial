@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="generative-discriminative.svg">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="303.904"
+     inkscape:cy="873.01827"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1863"
+     inkscape:window-height="1025"
+     inkscape:window-x="57"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path3952"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutS"
+       style="overflow:visible">
+      <path
+         id="path4085"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.2)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutS"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutS-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4085-8"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.2,0.2)" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="opacity:0.56989249;fill:none;stroke:#000000;stroke-width:19.10688019;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="M 327.11266,107.44163 C 427.17763,-2.855948 528.46576,91.23576 528.46576,91.23576"
+       id="path3931"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:2.34594774;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4935"
+       width="97.951881"
+       height="91.652527"
+       x="386.32532"
+       y="22.795406" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="407.05725"
+       y="71.542648"
+       id="text4931"><tspan
+         sodipodi:role="line"
+         id="tspan4933"
+         x="407.05725"
+         y="71.542648"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">mixing</tspan></text>
+    <ellipse
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:1.0945648;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path2985"
+       cx="303.55154"
+       cy="156.69748"
+       rx="48.864502"
+       ry="46.128094" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="269.90781"
+       y="160.35568"
+       id="text3903"><tspan
+         sodipodi:role="line"
+         id="tspan3905"
+         x="269.90781"
+         y="160.35568"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">sources</tspan></text>
+    <path
+       style="opacity:0.56989249;fill:none;stroke:#000000;stroke-width:19.10688019;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="m 542.92066,208.75302 c -100.06498,110.29756 -201.3531,16.20587 -201.3531,16.20587"
+       id="path3931-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:2.34594774;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4935-3"
+       width="97.951881"
+       height="91.652527"
+       x="388.68362"
+       y="224.70622" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="393.29651"
+       y="268.83105"
+       id="text4931-2"><tspan
+         sodipodi:role="line"
+         id="tspan4933-7"
+         x="393.29651"
+         y="268.83105"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">separation</tspan></text>
+    <ellipse
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:1.0945648;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path2985-3"
+       cx="583.5542"
+       cy="159.5761"
+       rx="48.864502"
+       ry="46.128094" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="544.93384"
+       y="162.10194"
+       id="text3903-1"><tspan
+         sodipodi:role="line"
+         id="tspan3905-5"
+         x="544.93384"
+         y="162.10194"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">mixtures</tspan></text>
+    <rect
+       style="fill:#ffd1aa;fill-opacity:1;stroke:#000000;stroke-width:1.90301788;stroke-miterlimit:4;stroke-dasharray:5.7090525, 1.9030175;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect6833-3"
+       width="264.9306"
+       height="53.478546"
+       x="507.14771"
+       y="262.01801" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="514.96619"
+       y="305.43988"
+       id="text6835-67"><tspan
+         sodipodi:role="line"
+         id="tspan6837-53"
+         x="514.96619"
+         y="305.43988"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">learn the separating function</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="514.38928"
+       y="282.745"
+       id="text6835-67-2"><tspan
+         sodipodi:role="line"
+         id="tspan6837-53-6"
+         x="514.38928"
+         y="282.745"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;fill:#ff0000;stroke-width:0.95534396">discriminative:</tspan></text>
+    <rect
+       style="fill:#ffd1aa;fill-opacity:1;stroke:#000000;stroke-width:2.48392391;stroke-miterlimit:4;stroke-dasharray:7.45177078, 2.48392358;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect6833-3-1"
+       width="321.34439"
+       height="75.115906"
+       x="9.3532076"
+       y="9.2773724" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="16.88122"
+       y="52.408775"
+       id="text6835-67-8"><tspan
+         sodipodi:role="line"
+         id="tspan6837-53-7"
+         x="16.88122"
+         y="52.408775"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">1. learn a GAN / AE on clean source</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="16.304369"
+       y="29.71389"
+       id="text6835-67-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan6837-53-6-2"
+         x="16.304369"
+         y="29.71389"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;fill:#ff0000;stroke-width:0.95534396">generative</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.46412754px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.95534396"
+       x="16.276527"
+       y="70.519066"
+       id="text6835-67-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan6837-53-7-2"
+         x="16.276527"
+         y="70.519066"
+         style="font-size:17.19618988px;line-height:1.25;font-family:sans-serif;stroke-width:0.95534396">2. infer latent features for separtion</tspan></text>
+  </g>
+</svg>

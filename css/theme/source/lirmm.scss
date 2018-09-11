@@ -1,0 +1,320 @@
+/**
+ * AudioLabs theme based on the default theme. The accent color is orange.
+ *
+ * * Copyright 2016 International Audio Laboratories Erlangen
+ * This theme is based on https://github.com/StereotypicalApps by Owen Versteeg (MIT License)
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+@import url(../../lib/font/fira/fira-sans.css);
+
+// inria red
+$red: rgb( 226, 0, 38);
+$orange: rgb( 243, 154, 38);
+$grey: rgb( 226, 0, 38);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+
+$mainFontSize: 24px;
+$mainFont: 'Fira Sans', sans-serif;
+$headingColor: $red;
+$headingFont: 'Fira Sans', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: normal;
+$headingMargin: 0em 0em 1em 0em;
+$linkColor: $red;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 1.5em;
+$heading2Size: 1.2em;
+$heading3Size: 1.0em;
+$heading4Size: 0.8em;
+
+
+section.has-dark-background {
+     &, h1, h2, h3, h4, h5, h6 {
+        color: #fff;
+     }
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal .solutions {
+  width: 100%;
+  padding: 0.5em;
+  line-height: 1.3em;
+  box-shadow: -5px 5px 5px grey;
+  border-radius: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.03);
+  color: lighten(black, 25%);
+  margin-left: 0em;
+  margin-top: 1em;
+  background-image: url("img/bulb.png");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1em) center;
+  background-size: 2em 2em;
+
+}
+
+.reveal #covertitle {
+  position: relative;
+  font-size: 1.5em;
+  color:white;
+  padding:1em;
+}
+
+.reveal #covertitle:hover {
+  color:white;
+}
+
+
+
+.reveal .solutions li {
+  padding: 0em;
+  margin-left: -0.5em;
+  font-size: 1em;
+  font-weight:100;
+  padding-bottom: 0px;
+}
+
+.reveal .solutions ul>li:before {
+    content: "▹  ";
+    font-family: FontAwesome;
+    color: black;
+    font-size: 1em;
+    padding-right: 0.25em;
+    display: inline-block;
+}
+
+.reveal .references ul {
+  // border: 1px solid black;
+  list-style: none;
+  border-radius: 5px;
+  background-color: lighten( desaturate(black, 50%), 95% );
+  margin-left: 1em;
+  margin-top: 0.2em;
+}
+
+.reveal .references li {
+  padding: 0.3em;
+  font-size: 0.7em;
+  font-family: sans-serif;
+  font-weight: lighter;
+  padding-bottom: 0px;
+}
+
+.reveal .references ul>li:before {
+    content: "▹  ";
+    font-family: FontAwesome;
+    color: darken(grey, 50%);
+    font-size: 1em;
+    padding-right: 0.25em;
+    display: inline-block;
+}
+
+body {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.reveal .slides {
+    text-align: left;
+    padding-top: 5vh;
+}
+
+.reveal.center .slides {
+    text-align: center;
+    padding-top: 0px;
+}
+
+.reveal .progress {
+    position:absolute;
+    top: 0;
+    height: 1.25vh;
+    background-color: rgba( 0, 0, 0, 0.2 );
+}
+
+.reveal .footer {
+    width: 100%;
+    height: 6em;
+    position: absolute;
+    bottom: 0px;
+    padding: 0px;
+    font-size: 0.5em;
+    line-height: 1.3em;
+    color: white;
+    background-image: url("img/bannerbottom.svg");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% 100%;
+}
+
+.reveal .footer img {
+    position: absolute;
+    left: 3em;
+    bottom: 0em;
+}
+
+.reveal .footer #middlebox {
+    position: absolute;
+    left: 14em;
+    // margin-left: -15em;
+    bottom: 3px;
+    width: 30em;
+    height: 2em;
+    font-size: 1em;
+}
+
+.no-title-footer .footer {
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+}
+
+.no-progressbar .progress {
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+}
+
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    color: $red;
+    font-weight: bold;
+}
+
+.reveal h2 {
+  margin-top: 0.7em;
+  margin-bottom: 0.3em;
+}
+
+.reveal ul {
+  list-style-type: none;
+}
+
+.reveal li ul, .reveal li ol {
+    margin-left: 1em;
+    list-style-type: none;
+}
+
+.reveal li li ul, .reveal li li ol {
+    margin-left: 1em;
+    list-style-type: none;
+}
+
+.reveal ul>li:before {
+    content: "■ ";
+    color: $red;
+    font-size: 1em;
+}
+
+.reveal .cover {
+    padding-top: 8em !important;
+    // color: white;
+}
+
+.reveal .cover h1, h2, h3 {
+    margin-top: 2em;
+    // color: white !important;
+}
+
+.reveal .cover img#inria {
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    top: -2em;
+    height: 8em;
+}
+
+.reveal section img {
+    margin: 0;
+    border: 0px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.two-floating-elements {
+  > ul ~ p,
+  > p ~ ul {
+    max-width: 80%;
+    float:left;
+    // font-size: 0.7em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  > p ~ ul {
+    margin-left: 0;
+  }
+}
+
+/*********************************************
+* SLIDE NUMBER
+*********************************************/
+.reveal .slide-number {
+    position: absolute;
+    right: 0.4em;
+    top: 0.6em;
+    color: rgba( 0, 0, 0, 0.2 );
+    font-size: 4.8vmax;
+    background-color: transparent;
+  	font-family: $mainFont;
+}
+
+.no-title-footer .reveal .slide-number {
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+}
+
+@media (max-width: 720px) {
+    .reveal .footer #middlebox {
+        display: none;
+    }
+
+    .reveal .footer #copyright {
+        font-size: 2.3vmax;
+        vertical-align: baseline;
+    }
+
+    .reveal .footer img {
+        height: 60%;
+    }
+
+    .reveal .slide-number {
+        font-size: 4vmax;
+    }
+
+    .reveal .progress {
+        height: 1vh;
+    }
+}
+
+
+.reveal blockquote {
+  padding: 35px;
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 10px solid rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+}
+
+section.has-dark-background h2 {
+  color: #fff !important;
+}
