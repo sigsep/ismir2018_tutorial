@@ -67,37 +67,37 @@ An audio demo of the critical impact of engineering for the “same” system.
 -->
 
 <!-- INTRODUCTION -->
-	<section>
-		<h1>Music Unmixing/Separation</h1>
-		<img width="45%" style="float:left" src="assets/intro1.png" alt="">
-		<img class="fragment" width="45%" src="assets/intro2.png" alt="">
-	</section>
+<section>
+	<h1>Music Unmixing/Separation</h1>
+	<img width="45%" style="float:left" src="assets/intro1.png" alt="">
+	<img class="fragment" width="45%" src="assets/intro2.png" alt="">
+</section>
 
-	<section>
-		here the best would be to display some mixer as in the sisec page
-	</section>
+<section>
+	here the best would be to display some mixer as in the sisec page
+</section>
 
-	<section>
-		<h1>Applications</h1>
-		<img width="60%" style="float:right" src="assets/karaoke.jpg" alt="">
+<section>
+	<h1>Applications</h1>
+	<img width="60%" style="float:right" src="assets/karaoke.jpg" alt="">
 
-		<ul>
-			<li>Automatic Karaoke</li>
-			<li>Creative Music Production</li>
-			<li>Personal Remixing</li>
-			<li>Music Education</li>
-			<li>Pre-processing for MIR</li>
-		</ul>
-	</section>
+	<ul>
+		<li>Automatic Karaoke</li>
+		<li>Creative Music Production</li>
+		<li>Personal Remixing</li>
+		<li>Music Education</li>
+		<li>Pre-processing for MIR</li>
+	</ul>
 </section>
 
 <section>
 	<h1>Introduction</h1>
-	<h2>Outline</h2>
-* Concepts and background<p>
-* A brief history<p>
-* Datasets<p>
-* Deep neural networks<p>
+	<ul>
+		<li>Concepts and background</li>
+		<li>A brief history</li>
+		<li>Datasets</li>
+		<li>Deep neural networks</li>
+	</ul>
 </section>
 
 <!-- CONCEPTS AND BACKGROUND -->
@@ -105,6 +105,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Introduction</h1>
 	<h2>Concepts and background</h2>
+	Time-frequency representations
 </section>
 
 <section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
@@ -128,49 +129,90 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<section>
-		<h1>Concepts and background</h1>
-		<h2>Hands on time-frequency representations</h2>
-		o set up the ipynb<p>
-		o for one track, display waveforms, play some audio ?<p>
-		o display spectrograms on the collab<p>
-	</section>
-	<section>
-		<h1>Concepts and background</h1>
-		<h2>Time-frequency as pre-whitening</h2>
-	</section>
+	<h1>Concepts and background</h1>
+	<h2>Hands on time-frequency representations</h2>
+	<ul class="practice">
+		<li>Set up the ipynb</li>
+		<li>For one track, display waveforms, play some audio</li>
+		<li>Display spectrograms</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Concepts and background</h1>
+	<h2>Time-frequency as pre-whitening</h2>
+	<img style="float:right" width="50%" src="assets/fourier_whitening.svg" alt="">
+	<ul>
+		<li>Frames too short: not diagonalized</li>
+		<li>Frames too long: not stationary</li>
+	</ul>
+</section>
+<section>
+	<h1>Concepts and background</h1>
+	<h2>Time-frequency as pre-whitening</h2>
+	<img width="90%" src="assets/STFT.gif" alt="">
+</section>
+
+<section>
+	<h1>Concepts and background</h1>
+	<h2>post-processing: filtering</h2>
+	<ul class="practice">
+	<li>Get spectrograms of the sources</li>
+	<li>Display the corresponding soft-mask for vocals</li>
+	<li>apply it on the mixture, reconstruct and listen to the result</li>
 </section>
 
 <section>
 	<section>
 		<h1>Concepts and background</h1>
 		<h2>post-processing: filtering</h2>
-		o get spectrograms of the sources<p>
-		o display the corresponding soft-mask for vocals<p>
-		o apply it on the mixture, reconstruct and listen to the result<p>
+		<img width="75%" src="assets/soft_masking_1.svg" alt="">
 	</section>
-
-	<section>
+	<section transition='none'>
 		<h1>Concepts and background</h1>
 		<h2>post-processing: filtering</h2>
-		* Softmask as a simple ratio thing
+		<img width="75%" src="assets/soft_masking_2.svg" alt="">
 	</section>
-
-	<section>
-		<h1>Concpets and background</h1>
-		<h2>The big picture</h2>
-		<div class="centered">
-			<img class="stretch" src="assets/challenges.svg" alt="">
-		</div>
+	<section transition='none'>
+		<h1>Concepts and background</h1>
+		<h2>post-processing: filtering</h2>
+		<img width="75%" src="assets/soft_masking_3.svg" alt="">
 	</section>
-
+	<section transition='none'>
+		<h1>Concepts and background</h1>
+		<h2>post-processing: filtering</h2>
+		<img width="75%" src="assets/soft_masking_4.svg" alt="">
+	</section>
+	<section data-transition="none">
+		<h1>Concepts and background</h1>
+		<h2>post-processing: filtering</h2>
+		<img width="75%" src="assets/soft_masking_5.svg" alt="">
+		<img class="fragment" style="float:right" width="100%" src="assets/soft_masking_formula_potatoes.svg" alt="">
+	</section>
+	<section transition='none'>
+		<h1>Concepts and background</h1>
+		<h2>post-processing: filtering</h2>
+		<img width="75%" src="assets/soft_masking_4.svg" alt="">
+		<img style="float:right" width="100%" src="assets/soft_masking_formula.svg" alt="">
+	</section>
 </section>
 
+<section>
+	<h1>Concepts and background</h1>
+	<h2>The big picture</h2>
+	<div class="centered">
+		<img width="93%" class="stretch" src="assets/discriminative_big_picture.svg" alt="">
+	</div>
+</section>
 
 <!-- A BRIEF HISTORY -->
 <section>
 	<h1>Introduction</h1>
 	<h2>A brief history</h2>
+	<h6 style="margin-top:40%; color:gray">
+	Rafii, Zafar, et al. "An Overview of Lead and Accompaniment Separation in Music."
+	IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP) 26.8 (2018): 1307-1335.
+</h6>
 </section>
 
 <section>
@@ -202,7 +244,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h1>A brief history: model-driven methods</h1>
 		<h2>Redundancy for the accompaniment: RPCA</h2>
 		<p>
-		<img width="90%" src="assets/model_based/ReviewPaper_ Figure4.svg" alt=""><p>
+		<img style="margin-top:4%;" width="90%" src="assets/model_based/ReviewPaper_ Figure4.svg" alt=""><p>
 		<ul>
 			<li>Low-rank for music</li>
 			<li>Vocals as unstructured</li>
@@ -214,7 +256,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<section>
 		<h1>A brief history: model-driven methods</h1>
 		<h2>Redundancy for the accompaniment: REPET</h2>
-		<img style="float:right" width="65%" src="assets/model_based/ReviewPaper_ Figure5.svg" alt="">
+		<img style="float:right; margin-top:4%" width="65%" src="assets/model_based/ReviewPaper_ Figure5.svg" alt="">
 		<ul>
 			<li>Repetitive music</li>
 			<li>Non-repetitive vocals</li>
@@ -235,10 +277,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 	<section>
 		<h1>A brief history: model-driven methods</h1>
+		<img style="float:right" width="45%" src="assets/model_based/ReviewPaper_ Figure8.svg" alt="">
 		<h2>Cascaded methods</h2>
-		<img style="float:right" width="40%" src="assets/model_based/ReviewPaper_ Figure8.svg" alt="">
 		<ul>
-			<li>Combining methods to reduce interferences</li>
+			<li>Combining methods</li>
 			<li>Handcrafted systems</li>
 			<li>Poor generalization</li>
 		</ul>
@@ -247,11 +289,11 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<section>
 		<h1>A brief history: model-driven methods</h1>
 		<h2>Fusion of methods</h2>
-		<img style="float:right" width="40%" src="assets/model_based/ReviewPaper_ Figure9.svg" alt="">
+		<img style="float:right" width="49%" src="assets/model_based/ReviewPaper_ Figure9.svg" alt="">
 		<ul>
 			<li>Combining in a data-driven way</li>
 			<li>Doing best than all</li>
-			<li>Computationally demanding. Data-driven</li>
+			<li>Computationally demanding</li>
 		</ul>
 	</section>
 </section>
@@ -264,320 +306,426 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<section>
-		<h1>Music separation datasets</h1>
-		<table>
-		   <thead>
-		      <tr>
-		         <th><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
-		         <th><strong>Year</strong></th>
-		         <th><strong>Reference&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
-		         <th><strong>#Tracks</strong></th>
-		         <th><strong>Tracks&nbsp;dur&nbsp;(s)	</strong></th>
-		         <th><strong>Full/stereo?</strong></th>
-						 <th><strong>Total&nbsp;length</strong></th>
-		      </tr>
-		   </thead>
-		   <tbody>
-		      <tr>
-		         <td>
-		            <a href="http://www.mtg.upf.edu/download/datasets/mass" target="_blank" rel="noopener noreferrer">
-		               MASS
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2008</td>
-		         <td>(Vinyes)</td>
-		         <td>9</td>
-		         <td>
-		            (16
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            7)
-		         </td>
-		         <td>❌ / ✔️</td>
-						 <td>2m24s</td>
-		      </tr>
-		      <tr>
-		         <td>
-		            <a href="https://sites.google.com/site/unvoicedsoundseparation/mir-1k" target="_blank" rel="noopener noreferrer">
-		               MIR-1K
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2010</td>
-		         <td>(Hsu and Jang)</td>
-		         <td>1,000</td>
-		         <td>8 <span class="katex"><span class="katex-mathml"></td>
-		         <td>❌ / ❌</td>
-						 <td>2h13m20s</td>
-		      </tr>
-		      <tr>
-		         <td>
-		            <a href="http://www.tsi.telecom-paristech.fr/aao/en/2012/03/12/quasi/" target="_blank" rel="noopener noreferrer">
-		               QUASI
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2011</td>
-		         <td>(Liutkus et al.)</td>
-		         <td>5</td>
-		         <td>
-		            (206
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            21)
-		         </td>
-		         <td>✔️ / ✔️</td>
-						 <td>17m10s</td>
-		      </tr>
-		      <tr>
-		         <td>
-		            <a href="http://www.loria.fr/~aliutkus/kam/" target="_blank" rel="noopener noreferrer">
-		               ccMixter
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2014</td>
-		         <td>(Liutkus et al)</td>
-		         <td>50</td>
-		         <td>
-		            (231
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            77)
-		         </td>
-		         <td>✔️ / ✔️</td>
-						 <td>3h12m30s</td>
-		      </tr>
-		      <tr>
-		         <td>
-		            <a href="http://medleydb.weebly.com/" target="_blank" rel="noopener noreferrer">
-		               MedleyDB
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2014</td>
-		         <td>(Bittner et al)</td>
-		         <td>63</td>
-		         <td>
-		            (206
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            121)
-		         </td>
-		         <td>✔️ / ✔️</td>
-						 <td>3h36m18s</td>
-		      </tr>
-		      <tr>
-		         <td>
-		            <a href="http://mac.citi.sinica.edu.tw/ikala/" target="_blank" rel="noopener noreferrer">
-		               iKala
-		               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
-		                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
-		                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
-		               </svg>
-		            </a>
-		         </td>
-		         <td>2015</td>
-		         <td>(Chan et al)</td>
-		         <td>206</td>
-		         <td>30</td>
-		         <td>❌ / ❌</td>
-						 <td>1h43m</td>
-		      </tr>
-		      <tr>
-		         <td><a href="/datasets/dsd100.html" class="">DSD100</a><span class="badge"></span></td>
-		         <td>2015</td>
-		         <td>(Ono et al)</td>
-		         <td>100</td>
-		         <td>
-		            (251
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            60)
-		         </td>
-		         <td>✔️ / ✔️</td>
-						 <td>6h58m20s</td>
-		      </tr>
-		      <tr>
-		         <td><a href="/datasets/musdb.html" class="">MUSDB18</a></td>
-		         <td>2017</td>
-		         <td>(Rafii et al)</td>
-		         <td>150</td>
-		         <td>
-		            (236
-		            <span class="katex">
-		               <span class="katex-mathml">
-		                  <math>
-		                     <semantics>
-		                        <mrow>
-		                           <mo>±</mo>
-		                        </mrow>
-		                        <annotation encoding="application/x-tex">\pm</annotation>
-		                     </semantics>
-		                  </math>
-		               </span>
-		               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
-		            </span>
-		            95)
-		         </td>
-		         <td>✔️ / ✔️</td>
-						 <td>9h50m</td>
+	<h1>Music separation datasets</h1>
+	<table>
+	   <thead>
+	      <tr>
+	         <th><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
+	         <th><strong>Year</strong></th>
+	         <th><strong>Reference&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
+	         <th><strong>#Tracks</strong></th>
+	         <th><strong>Tracks&nbsp;dur&nbsp;(s)	</strong></th>
+	         <th><strong>Full/stereo?</strong></th>
+					 <th><strong>Total&nbsp;length</strong></th>
+	      </tr>
+	   </thead>
+	   <tbody>
+	      <tr>
+	         <td>
+	            <a href="http://www.mtg.upf.edu/download/datasets/mass" target="_blank" rel="noopener noreferrer">
+	               MASS
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2008</td>
+	         <td>(Vinyes)</td>
+	         <td>9</td>
+	         <td>
+	            (16
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            7)
+	         </td>
+	         <td>❌ / ✔️</td>
+					 <td>2m24s</td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <a href="https://sites.google.com/site/unvoicedsoundseparation/mir-1k" target="_blank" rel="noopener noreferrer">
+	               MIR-1K
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2010</td>
+	         <td>(Hsu and Jang)</td>
+	         <td>1,000</td>
+	         <td>8 <span class="katex"><span class="katex-mathml"></td>
+	         <td>❌ / ❌</td>
+					 <td>2h13m20s</td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <a href="http://www.tsi.telecom-paristech.fr/aao/en/2012/03/12/quasi/" target="_blank" rel="noopener noreferrer">
+	               QUASI
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2011</td>
+	         <td>(Liutkus et al.)</td>
+	         <td>5</td>
+	         <td>
+	            (206
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            21)
+	         </td>
+	         <td>✔️ / ✔️</td>
+					 <td>17m10s</td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <a href="http://www.loria.fr/~aliutkus/kam/" target="_blank" rel="noopener noreferrer">
+	               ccMixter
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2014</td>
+	         <td>(Liutkus et al)</td>
+	         <td>50</td>
+	         <td>
+	            (231
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            77)
+	         </td>
+	         <td>✔️ / ✔️</td>
+					 <td>3h12m30s</td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <a href="http://medleydb.weebly.com/" target="_blank" rel="noopener noreferrer">
+	               MedleyDB
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2014</td>
+	         <td>(Bittner et al)</td>
+	         <td>63</td>
+	         <td>
+	            (206
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            121)
+	         </td>
+	         <td>✔️ / ✔️</td>
+					 <td>3h36m18s</td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <a href="http://mac.citi.sinica.edu.tw/ikala/" target="_blank" rel="noopener noreferrer">
+	               iKala
+	               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+	                  <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path>
+	                  <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon>
+	               </svg>
+	            </a>
+	         </td>
+	         <td>2015</td>
+	         <td>(Chan et al)</td>
+	         <td>206</td>
+	         <td>30</td>
+	         <td>❌ / ❌</td>
+					 <td>1h43m</td>
+	      </tr>
+	      <tr>
+	         <td><a href="/datasets/dsd100.html" class="">DSD100</a><span class="badge"></span></td>
+	         <td>2015</td>
+	         <td>(Ono et al)</td>
+	         <td>100</td>
+	         <td>
+	            (251
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            60)
+	         </td>
+	         <td>✔️ / ✔️</td>
+					 <td>6h58m20s</td>
+	      </tr>
+	      <tr>
+	         <td><a href="/datasets/musdb.html" class="">MUSDB18</a></td>
+	         <td>2017</td>
+	         <td>(Rafii et al)</td>
+	         <td>150</td>
+	         <td>
+	            (236
+	            <span class="katex">
+	               <span class="katex-mathml">
+	                  <math>
+	                     <semantics>
+	                        <mrow>
+	                           <mo>±</mo>
+	                        </mrow>
+	                        <annotation encoding="application/x-tex">\pm</annotation>
+	                     </semantics>
+	                  </math>
+	               </span>
+	               <span aria-hidden="true" class="katex-html"><span class="strut" style="height: 0.58333em;"></span><span class="strut bottom" style="height: 0.66666em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord">±</span></span></span>
+	            </span>
+	            95)
+	         </td>
+	         <td>✔️ / ✔️</td>
+					 <td>9h50m</td>
 
-		      </tr>
-		   </tbody>
-		</table>
-		</section>
-
-	<section>
-		<h1>Setting up musdb</h1>
-		<ul>
-			<li>100 train / 50 test full tracks</li>
-			<li>Mastered with pro. digital audio workstations</li>
-			<li>Parser and Evaluation tools in <i class="fab fa-python"></i></li>
-			<li><a ref=https://sigsep.github.io/datasets/musdb.html>https://sigsep.github.io/datasets/musdb.html</a></li>
-		</ul>
-		<img width="320px" style="float: right" src="assets/ni_logo.png" alt="">
-		<img width="700px" src="assets/hero.svg" alt="">
-		<p>
-		o start the collab<p>
-		o loop over some musdb tracks<p>
-	</section>
+	      </tr>
+	   </tbody>
+	</table>
 </section>
 
 <section>
-	<section>
-		<h1>Evaluating quality</h1>
-		<h2>BSS eval, museval</h2>
-		* SDR, SIR, SAR
-		* presenting museval (bsseval v4)<p>
-	</section>
-
-	<section>
-		<h1>Evaluating quality</h1>
-		<h2>hands-on</h2>
-		o evaluate the oracle separation on musdb test<p>
-		o compare to state of the art (sisec18)
-	</section>
+	<h2>The musdb dataset</h2>
+	<ul>
+		<li>100 train / 50 test full tracks</li>
+		<li>Mastered with pro. digital audio workstations</li>
+		<li>Parser and Evaluation tools in <i class="fab fa-python"></i></li>
+		<li><a ref=https://sigsep.github.io/datasets/musdb.html>https://sigsep.github.io/datasets/musdb.html</a></li>
+	</ul>
+	<img width="320px" style="float: right" src="assets/ni_logo.png" alt="">
+	<img width="60%" src="assets/hero.svg" alt="">
+	<h2>hands-on</h2>
+	<ul class="practice">
+		<li>Install musdb</li>
+		<li>Loop over some musdb tracks</li>
+	</ul>
 </section>
+
+
+<section>
+	<h1>Evaluating quality</h1>
+	<h2><img width="50px"src="assets/matlab.jpg" alt="">BSSeval v3</h2>
+	All metrics in dB. The higher, the better:
+	<ul>
+		<li><strong>SDR</strong>: Source to distortion ratio. <em>Error in the estimate</em>.</li>
+		<li><strong>SIR</strong>: Source to interference ratio. <em>Presence of other sources</em>.</li>
+		<li><strong>SAR</strong>: Source to artifacts ratio. <em>Amount of artificial noise</em>.</li>
+	</ul>
+	<p>
+	<h6 style="margin-top:2%; color:gray">
+	E. Vincent et al. "Performance measurement in blind audio source separation."
+	IEEE transactions on audio, speech, and language processing 14.4 (2006): 1462-1469.
+	</h6>
+	<h2><img width="50px"src="assets/python.jpg" alt="">museval (BSSeval v4)</i></h2>
+	<ul>
+		<li><strong>Better</strong> matching filters computed track-wise </li>
+		<li><strong>Faster</strong> 10x</li>
+	</ul>
+	<h6 style="margin-top:2%; color:gray">
+	F. Stöter et al. "The 2018 Signal Separation Evaluation Campaign."
+	LVA/ICA 2018.
+	</h6>
+</section>
+
+<section>
+	<h1>Evaluating quality</h1>
+	<h2>Hands-on</h2>
+	<ul class="practice">
+		<li>Evaluate oracle separation on musdb</li>
+		<li>Compare to state of the art (SiSEC18)</li>
+	</ul>
+</section>
+
 
 <!-- DEEP NEURAL NETWORKS -->
 <section>
 	<h1>Introduction</h1>
 	<h2>Deep neural networks</h2>
+	<h6 style="margin-top:50%; color:gray">
+	Y. LeCun, et al. "Deep learning". nature, 521(7553), 436 (2015).
+</h6>
 </section>
 
 <section>
-	<section>
-		<h1>Deep neural networks</h1>
-		<h2>Structure</h2>
-		* Figure on cascading linear and non-linear operations<p>
-		o Simple example on MNIST with pytorch<p>
-	</section>
+	<h1>Deep neural networks</h1>
+	<h2>Basic fully connected layer</h2>
+	<img width="80%" src="assets/one_layer.svg" alt="">
+	<img class="fragment" style="float:right" width="60%" src="assets/non_linearities.svg" alt="">
+</section>
 
-	<section>
-		<h1>Deep neural networks</h1>
-		<h2>Training</h2>
-		* The concept of cost function + gradient descent, learning rate<p>
-		* Optimization algorithms in short<p>
-	</section>
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Basic fully connected network</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/several_layers.svg" alt="">
+</section>
 
-	<section>
-		<h1>Deep neural networks</h1>
-		<h2>Automatic differentiation with autograd</h2>
-		o illustration of autograd<p>
-		o putting it together: learning a MNIST digit classification net ?<p>
-	</section>
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Usual deep network</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/several_layers_general.svg" alt="">
+	<ul class="fragment">
+		<li>Cascading linear and non-linear operations augments expressive power</li>
+		<li>7 millions parameters in our case</li>
+	</ul>
+</section>
 
-	<section>
-		<h1>Our vanilla deep neural net for separation</h1>
-		<h2>General discriminative approach</h2>
-		<img width="55%" style="float:center" src="assets/discriminative_dnn.svg" alt="">
-	</section>
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: vocabulary</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/training_dataset.svg" alt="">
+</section>
 
-	<section>
-		<h1>Our vanilla deep neural net for separation</h1>
-		<h2>Structure</h2>
-	</section>
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: vocabulary</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/training_dataset_batch.svg" alt="">
+</section>
 
-	<section>
-		<h1>Our vanilla deep neural net for separation</h1>
-		<!-- EXPERIMENT NEEDED -->
-		o Create the net on pytorch, load the weights, apply it, separate<p>
-		o Evaluate quality<p>
-	</section>
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: vocabulary</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/training_dataset_learning.svg" alt="">
+</section>
 
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: vocabulary</h2>
+	<img  style="margin-top:5%" width="100%" src="assets/one_epoch.gif" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:center" width="20%" src="assets/sample_supervised.svg" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:center" width="73%" src="assets/sample_supervised_separation.svg" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_0.svg" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_1.svg" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_2.svg" alt="">
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Training: the supervised approach</h2>
+	<img  style="margin-top:5%; float:right" width="43%" src="assets/gradient_descent.gif" alt="">
+	<ul>
+		<li>We can compute $\frac{\partial loss}{\partial\Theta_{i}}$ for any parameter $\Theta_i$
+			<ul>
+				<li>It's the <strong>gradient</strong></li>
+				<li>Computed through <strong>backpropagation</strong></li>
+			</ul>
+		</li><p>
+		<li>A simple method: $\Theta_i\leftarrow \Theta_i - \lambda \frac{\partial loss}{\partial\Theta_{i}}$
+			<ul>
+				<li>It's the <strong>stochastic gradient descent</strong></li>
+				<li>$\lambda$ is the <strong>learning rate</strong></li>
+			</ul>
+		</li>
+	</ul>
+	<p>
+	There are many other and better algorithms...
+
+</section>
+
+<section>
+	<h1>Deep neural networks</h1>
+	<h2>Automatic differentiation with autograd</h2>
+	o illustration of autograd<p>
+	o putting it together: learning a MNIST digit classification net ?<p>
+</section>
+
+<section>
+	<h1>Our vanilla deep neural net for separation</h1>
+	<h2>General discriminative approach</h2>
+	<img width="55%" style="float:center" src="assets/discriminative_dnn.svg" alt="">
+</section>
+
+<section>
+	<h1>Our vanilla deep neural net for separation</h1>
+	<h2>Structure</h2>
+</section>
+
+<section>
+	<h1>Our vanilla deep neural net for separation</h1>
+	<!-- EXPERIMENT NEEDED -->
+	o Create the net on pytorch, load the weights, apply it, separate<p>
+	o Evaluate quality<p>
 </section>
 
 <section>
