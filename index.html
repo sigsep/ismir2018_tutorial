@@ -685,13 +685,15 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:right" width="43%" src="assets/gradient_descent.gif" alt="">
 	<ul>
+		<li>$loss\leftarrow \sum_{x\in batch}cost\left(y_\Theta\left(x\right), y\right)$</li>
 		<li>We can compute $\frac{\partial loss}{\partial\Theta_{i}}$ for any parameter $\Theta_i$
 			<ul>
+				<li>"The influence of $\Theta_i$ on the error"</li>
 				<li>It's the <strong>gradient</strong></li>
 				<li>Computed through <strong>backpropagation</strong></li>
 			</ul>
 		</li><p>
-		<li>A simple method: $\Theta_i\leftarrow \Theta_i - \lambda \frac{\partial loss}{\partial\Theta_{i}}$
+		<li>A simple optimization: $\Theta_i\leftarrow \Theta_i - \lambda \frac{\partial loss}{\partial\Theta_{i}}$
 			<ul>
 				<li>It's the <strong>stochastic gradient descent</strong></li>
 				<li>$\lambda$ is the <strong>learning rate</strong></li>
@@ -699,8 +701,15 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</li>
 	</ul>
 	<p>
-	There are many other and better algorithms...
+	There are many other optimization algorithms...
+	<!--
+	<h6 style="color:gray">
+		<ul>
+			<li><strong>RMSprop</strong> T. Tieleman, et al. "Lecture 6.5-rmsprop: Divide the gradient by a running average of its recent magnitude." COURSERA: Neural networks for machine learning 4.2 (2012): 26-31.
+			<li><strong>Adam</strong>	D. Kingma, et al. "Adam: A method for stochastic optimization." arXiv preprint (2014) arXiv:1412.6980.
 
+		</ul>
+	</h6> -->
 </section>
 
 <section>
