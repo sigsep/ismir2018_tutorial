@@ -912,9 +912,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<h1>Outline</h1>
-	<h2>DNN Structure</h2>
-	* A quick guided tour<p>
-	* Parameter search for the vanilla<p>
+	<h2>DNN Structure: optimizing the vanilla net</h2>
 </section>
 <!--
 <section>
@@ -934,22 +932,42 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla</h1>
-		<h2>Hidden size</h2>
-	</section>
-	<section>
-		<h1>DNN structures: optimizing the vanilla</h1>
+		<h1>DNN structures: optimizing the vanilla net</h1>
 		<h2>Number of layers</h2>
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla</h1>
-		<h2>LSTM or BLSTM</h2>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>Hidden size</h2>
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla</h1>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>Context length</h2>
+	</section>
+	<section>
+		<h1>DNN structures: optimizing the vanilla net</h1>
 		<h2>Results</h2>
 		* presentation of results
 	</section>
+	<section>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>LSTM or BLSTM</h2>
+		* presentation of results
+	</section>
+	<section>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>Skip connection</h2>
+		figure
+	</section>
+	<section>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>Skip connection</h2>
+		* presentation of results
+	</section>
+</section>
+
+<section>
+	<h1>Recap: current structure for the baseline</h1>
+	figure
 </section>
 
 
@@ -965,20 +983,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Training</h1>
-	<h2>A quick starter</h2>
-	o Setting up training on the baseline as it is at this stage<p>
-	o Launch a few epochs of training on the 30s dataset<p>
-</section>
-
-<section>
 	<section>
 		<h1>Training</h1>
 		<h2>Cost function</h2>
 		* MSE on magnitude
-		* MSE(log) link with itakura saito
+		* KL
 	</section>
-
 	<section>
 		<h1>Training</h1>
 		<h2>Cost function</h2>
@@ -1051,9 +1061,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h2>Sampling strategy</h2>
 		<img width="400px" style="float:right" src="assets/sampling.gif" alt="">
 
-		* two levels: track and sample
-		* tracks: random or ensuring batch-diversity
-		* samples: random or ensuring all data per epoch
+		* two levels: track and sample<p>
+		* tracks: random or ensuring batch-diversity<p>
+		* samples: random or ensuring all data per epoch<p>
 	</section>
 
 	<section>
@@ -1074,6 +1084,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 		o Performance comparison
 	</section>
 </section>
+
+<section>
+	<h1>Final baseline model</h1>
+	figure
+</section>
+
 
 <!-- TESTING -->
 <section>
