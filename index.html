@@ -74,10 +74,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	here the best would be to display some mixer as in the sisec page
-</section>
-
-<section>
 	<h1>Applications</h1>
 	<img width="60%" style="float:right" src="assets/karaoke.jpg" alt="">
 
@@ -89,6 +85,11 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<li>Pre-processing for MIR</li>
 	</ul>
 </section>
+
+<section>
+	here the best would be to display some mixer as in the sisec page
+</section>
+
 
 <section>
 	<h1>Introduction</h1>
@@ -685,7 +686,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:right" width="43%" src="assets/gradient_descent.gif" alt="">
 	<ul>
-		<li>$loss\leftarrow \sum_{x\in batch}cost\left(y_\Theta\left(x\right), y\right)$</li>
+		<li>$loss\leftarrow \sum_{(x,y)\in batch}cost\left(y_\Theta\left(x\right), y\right)$</li>
+		<li>Update $\Theta$ to reduce the loss!</li>
+		<p>
 		<li>We can compute $\frac{\partial loss}{\partial\Theta_{i}}$ for any parameter $\Theta_i$
 			<ul>
 				<li>"The influence of $\Theta_i$ on the error"</li>
@@ -714,27 +717,136 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<h1>Deep neural networks</h1>
-	<h2>Automatic differentiation with autograd</h2>
-	o illustration of autograd<p>
-	o putting it together: learning a MNIST digit classification net ?<p>
+	<h2>Automatic differentiation with pytorch autograd</h2>
+	<ul class="practice">
+		<li>Illustration of pytorch autograd</li>
+		<li>Putting it together: learning a MNIST digit classification net ?</li>
+	</ul>
+</section>
+
+
+<section>
+	<h1>Modeling temporal data</h1>
+	<h6 style="margin-top:50%; color:gray">
+		colah's blog, <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a>, 2015.
+	</h6>
+</section>
+
+<section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>From fully connected to the vanilla recurrent net</h2>
+		<img  style="float:center" width="90%" src="assets/recurrent_layer_1.svg" alt="">
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>From fully connected to the vanilla recurrent net</h2>
+		<img  style="float:center" width="90%" src="assets/recurrent_layer_2.svg" alt="">
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>From fully connected to the vanilla recurrent net</h2>
+		<img  style="float:center" width="90%" src="assets/time_distributed_dense.svg" alt="">
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>From fully connected to the vanilla recurrent net</h2>
+		<img  style="float:center" width="90%" src="assets/recurrent_layer_3.svg" alt="">
+	</section>
+
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The vanilla recurrent net</h2>
+		<img  style="float:left" width="24%" src="assets/recurrent_layer_4.svg" alt="">
+		<ul>
+			<li>$y_{t}=f\left(linear\left\{ x_{t},y_{t-1}\right\} \right)$</li>
+			<li>Similar to a Markov model
+				<ul>
+					<li>Exponential decay of information</li>
+					<li>Vanishing gradient for training</li>
+				</ul></li><p>
+			<li>We need to model long-term dependencies</li>
+		</ul>
+		<h6 style="margin-top:30%; color:gray">
+			P. Huang, et al. "Deep learning for monaural speech separation. ICASSP, 2014.
+		</h6>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The long short term memory (LSTM)</h2>
+		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_1.svg" alt="">
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The long short term memory (LSTM)</h2>
+		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_2.svg" alt="">
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The long short term memory (LSTM)</h2>
+		<img  style="margin-top:2%; float:center" width="80%" src="assets/lstm_3.svg" alt="">
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The bi-LSTM</h2>
+		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_1.svg" alt="">
+		<ul>
+			<li>LSTM are causal systems</li>
+			<li>Predicts future from past</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The bi-LSTM</h2>
+		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_2.svg" alt="">
+		<ul>
+			<li>We can use anti-causal LSTM</li>
+			<li>Different predictions!</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Modeling temporal data</h1>
+		<h2>The bi-LSTM</h2>
+		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_3.svg" alt="">
+		<ul>
+			<li>Independent forward and backward</li>
+			<li>Outputs can be concatenated</li>
+			<li class="fragment">Outputs can be summed<p>
+			<img  style="margin-top:2%; float:center" width="100%" src="assets/combine_blstm.svg" alt="">
+		</li>
+		</ul>
+	</section>
+
 </section>
 
 <section>
 	<h1>Our vanilla deep neural net for separation</h1>
-	<h2>General discriminative approach</h2>
-	<img width="55%" style="float:center" src="assets/discriminative_dnn.svg" alt="">
+	<img width="48%" style="float:left" src="assets/vanilla_lstm.svg" alt="">
+	<ul>
+		<li>Two layers</li>
+		<li>dim LSTM output=512 $\Rightarrow$ 6M parameters</li>
+	</ul>
+	<p>
+	<ul class="practice">
+		<li>Implement the model in pytorch</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Get data into the model</h1>
+	<h2>Spectrogram sampling</h2>
+	<img width="100%" style="float:center" src="assets/sample_supervised_temporal.svg" alt="">
 </section>
 
 <section>
 	<h1>Our vanilla deep neural net for separation</h1>
-	<h2>Structure</h2>
-</section>
-
-<section>
-	<h1>Our vanilla deep neural net for separation</h1>
-	<!-- EXPERIMENT NEEDED -->
-	o Create the net on pytorch, load the weights, apply it, separate<p>
-	o Evaluate quality<p>
+	<img width="100%" style="float:center" src="assets/vanilla_lstm_test.svg" alt="">
 </section>
 
 <section>
@@ -804,49 +916,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 	* A quick guided tour<p>
 	* Parameter search for the vanilla<p>
 </section>
-
+<!--
 <section>
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>The multilayer perceptron (MLP)</h2>
-		* basic idea<p>
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>The vanilla recurrent neural network (vRNN)</h2>
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>The long short term memory (LSTM)</h2>
-		* Long short term memory (LSTM) <p>
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>Recurrent variants</h2>
-		* The bi-LSTM<p>
-		* Gated recurrent units (GRU) <p>
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>The convolutional neural network (CNN)</h2>
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>Cocktails of CNN-RNN</h2>
-		* U-NET <p>
-		* MM-densnet
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>Skip-connections</h2>
-	</section>
-
 	<section>
 		<h1>DNN structures: a quick guided tour</h1>
 		<h2>Generative ideas</h2>
@@ -859,7 +930,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h2>Deep clustering</h2>
 	</section>
 
-</section>
+</section> -->
 
 <section>
 	<section>
@@ -1114,6 +1185,27 @@ An audio demo of the critical impact of engineering for the “same” system.
 		* Performance comparison with state of the art<p>
 		o Resources
 	</section>
+
+
+	<!-- ALTERNATIVE STRUCTURES ? -->
+		<section>
+			<h1>DNN structures: a quick guided tour</h1>
+			<h2>The convolutional neural network (CNN)</h2>
+		</section>
+
+		<section>
+			<h1>DNN structures: a quick guided tour</h1>
+			<h2>Cocktails of CNN-RNN</h2>
+			* U-NET <p>
+			* MM-densnet
+		</section>
+
+		<section>
+			<h1>DNN structures: a quick guided tour</h1>
+			<h2>Skip-connections</h2>
+		</section>
+
+
 
 	<section>
 		<h1>Conclusion</h1>
