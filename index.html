@@ -852,63 +852,78 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Outline</h1>
 	<h2>Representations</h2>
-	* Fourier transforms parameters<p>
-	* Input dimensionality reduction<p>
-	* Excerpts length<p>
-	* Standardization<p>
+	<ul>
+		<li> Fourier transforms parameters</li>
+		<li>Input dimensionality reduction</li>
+		<li>Standardization</li>
+	</ul>
 </section>
 
 <section>
 	<section>
 		<h1>Representation</h1>
 		<h2>Fourier transform parameters</h2>
-		* experiment: nfft, overlap [1024, 4096] x [0.5, 0.75]<p>
-		* fixed context for the network
-		o results<p>
-		<!-- EXPERIMENT NEEDED -->
+		<img width="100%" style="float:center" src="assets/FFT_parameters.svg" alt="">
+		<ul>
+			<li>Network is always fed 360ms of context</li>
+		</ul>
 	</section>
-
 	<section>
 		<h1>Representation</h1>
-		<h2>Input dimensionality reduction</h2>
-		* Handcrafted representations: mel-scale<p>
-		o Implementation using librosa<p>
-		<!-- EXPERIMENT NEEDED -->
-		o Load weights again, test
+		<h2>Fourier transform parameters</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
+			<li><strong>Overlap</strong>: 75%</li>
+		</ul>
 	</section>
+</section>
 
-	<section>
-		<h1>Representation</h1>
-		<h2>Learnable dimensionality reduction</h2>
-		* Learnable feature reduction<p>
-		o Implementation in pytorch<p>
-	</section>
-
-	<section>
-		<h1>Representation</h1>
-		<h2>Comparison</h2>
-		* Explain parameters tested [128 mel, 128 learnable] vs 4096 fft
-		* Display comparison results
-		<!-- EXPERIMENT NEEDED -->
-	</section>
-
-	<section>
-		<h1>Representation</h1>
-		<h2>Sample length</h2>
-		* sample length [64, 128, 256] frames. Tell in seconds ?
-		* Display comparison results
-		<!-- EXPERIMENT NEEDED -->
-	</section>
-
+<section>
 	<section>
 		<h1>Representation</h1>
 		<h2>Standardization</h2>
-		* Concept
-		* No standardization, non-learnable, learnable
-		o Results
-		o Check for mixture/5
+		<img width="47%" style="float:left" src="assets/standardization.svg" alt="">
+		<ul>
+			<li>Compensate different features scales</li>
+			<li>Classical pre-processing</li>
+			<li>Either dataset stats or trainable
+		</ul>
+	</section>
+	<section>
+		<h1>Representation</h1>
+		<h2>Standardization</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Input scaling is not necessary here</li>
+			<li>Dense matrices in LSTM account for different feature scales</li>
+		</ul>
 	</section>
 </section>
+
+<section>
+	<section>
+		<h1>Representation</h1>
+		<h2>Input dimensionality reduction</h2>
+		<img width="53%" style="float:left" src="assets/input_dimensionality_reduction.svg" alt="">
+		<ul>
+			<li>Beyond scaling: reduce redundancy?</li>
+			<li>Fixed or trainable reduction</li>
+			<li>Should we handcraft features?</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Representation</h1>
+		<h2>Input dimensionality reduction</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Hand-crafted features are not worth it</li>
+			<li>Learning representations is the way to go</li>
+			<li>PCA is an option, but computationally demanding for no real benefit</li>
+		</ul>
+	</section>
+</section>
+
 
 <section>
 	<h1>Outline</h1>
@@ -933,49 +948,58 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<section>
 		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Number of layers</h2>
-	</section>
-	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Hidden size</h2>
-	</section>
-	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Context length</h2>
+		<img width="74%" style="float:left" src="assets/structure_tuning.svg" alt="">
 	</section>
 	<section>
 		<h1>DNN structures: optimizing the vanilla net</h1>
 		<h2>Results</h2>
-		* presentation of results
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>First</li>
+			<li>Second</li>
+			<li>Third</li>
+		</ul>
 	</section>
 	<section>
 		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>LSTM or BLSTM</h2>
-		* presentation of results
+		<img width="62%" style="float:left" src="assets/structure_tuning_blstm.svg" alt="">
 	</section>
 	<section>
 		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Skip connection</h2>
-		figure
+		<h2>LSTM vs BLSTM: results</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>First</li>
+			<li>Second</li>
+			<li>Third</li>
+		</ul>
 	</section>
 	<section>
 		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Skip connection</h2>
-		* presentation of results
+		<img width="45%" style="float:left" src="assets/structure_tuning_skip.svg" alt="">
+	</section>
+	<section>
+		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h2>skip connection or not: results</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>First</li>
+			<li>Second</li>
+			<li>Third</li>
+		</ul>
 	</section>
 </section>
 
 <section>
 	<h1>Recap: current structure for the baseline</h1>
-	figure
+	<img width="44%" style="float:left" src="assets/structure_after_tuning.svg" alt="">
 </section>
 
 
 <!-- TRAINING -->
 <section>
 	<h1>Outline</h1>
-	<h2>Trainng</h2>
-	* A quick starter<p>
+	<h2>Training</h2>
 	* Cost function<p>
 	* Training tricks<p>
 	* Data augmentation<p>
