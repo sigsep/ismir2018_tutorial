@@ -768,7 +768,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>We need to model long-term dependencies</li>
 		</ul>
 		<h6 style="margin-top:30%; color:gray">
-			P. Huang, et al. "Deep learning for monaural speech separation. ICASSP, 2014.
+			P. Huang, et al. "Deep learning for monaural speech separation". (2014) ICASSP.
 		</h6>
 	</section>
 </section>
@@ -1000,101 +1000,181 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Outline</h1>
 	<h2>Training</h2>
-	* Cost function<p>
-	* Training tricks<p>
-	* Data augmentation<p>
-	* Sampling strategy<p>
+	<ul>
+		<li>Cost function</li>
+		<li>Training tricks</li>
+	  <li>Data augmentation</li>
+	  <li>Sampling strategy</li>
+	</ul>
 </section>
 
 <section>
 	<section>
 		<h1>Training</h1>
-		<h2>Cost function</h2>
-		* MSE on magnitude
-		* KL
+		<h2>The cost function jungle</h2>
+			<img width="20%" style="float:left" src="assets/cost_function.svg" alt="">
+			<img width="30%" style="float:right" src="assets/costfunction_jungle.gif" alt="">
+		<ul>
+			<li>$loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right)\right)$</li>
+			<li>Wide variety of cost functions $d\left(a,b\right)$
+				<ul>
+					<li>squared loss $\left|a-b\right|^2$</li>
+					<li>absolute loss $\left|a-b\right|$</li>
+					<li>Kullback Leibler loss $a\log\frac{a}{b}-a+b$</li>
+					<li>Itakura Saito loss $\frac{a}{b}-\log\frac{a}{b}-1$</li>
+					<li>Cauchy, alpha divergence, ...
+				</ul>
+			</li>
+			<li>Applied on $Y$, $Y^2$, any $Y^\alpha$, $\log Y$, ...</li>
+			<li>Theoretical grounds for all</li>
+		</ul>
+		<h6 style="margin-top:2%; color:gray">
+			C. Févotte, et al. "Algorithms for nonnegative matrix factorization with the β-divergence." Neural computation 23.9 (2011): 2421-2456.
+		</h6>
+		<h6 style="margin-top:2%; color:gray">
+			A. Liutkus, et al. "Generalized Wiener filtering with fractional power spectrograms." (2015) ICASSP.
+		</h6>
+		<!-- SOME HANDS ON IN THE PRACTICE SESSION ? -->
 	</section>
+
 	<section>
 		<h1>Training</h1>
-		<h2>Cost function</h2>
-		o results
+		<h2>Cost functions: some results</h2>
+		<p>
+		<img width="30%" style="float:center" src="assets/costfunctions_SDR.png" alt="">
+		<img width="30%" style="float:center" src="assets/costfunctions_SIR.png" alt="">
+		<img width="30%" style="float:center" src="assets/costfunctions_SAR.png" alt="">
+		<h6 style="margin-top:2%; color:gray">
+			A. Nugraha, et al. "Multichannel Audio Source Separation With Deep Neural Networks." TASLP 24.9 (2016): 1652-1664.
+		</h6>
 	</section>
 </section>
 
 <section>
 	<section>
-		<h1>Training tricks</h1>
-		<h2>Algorithm and learning rate</h2>
+		<h1>Training: learning rate</h1>
+		<img  style="margin-top:5%; float:left" width="33%" src="assets/gradient_descent_big.gif" alt="">
+		<img  style="margin-top:5%; float:center" width="33%" src="assets/gradient_descent.gif" alt="">
+		<img  style="margin-top:5%; float:right" width="27%" src="assets/learningrates.jpg" alt="">
+		<ul>
+			<li>We check for $\left[0.01, 0.001\right]$</li>
+		</ul>
+		<h6 style="margin-top:10%; color:gray">
+			Leonardo Araujo dos Santos, <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/model_optimization.html">Artificial Intelligence</a>, 2017.
+		</h6>
 	</section>
 
 	<section>
-		<h1>Training tricks</h1>
-		<h2>Regularization: dropout</h2>
-		* Concept<p>
-		o practice
-	</section>
+		<h1>Training: normalization</h1>
+		<img  style="margin-top:0%; float:left" width="80%" src="assets/structure_bnln.svg" alt="">
+		</section>
 
 	<section>
-		<h1>Training tricks</h1>
-		<h2>Normalization: layernorm</h2>
-		* Concept<p>
-		o practice
+		<h1>Training</h1>
+		<h2>Learning rate and normalization: results</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Keep default parameters for learning rates</li>
+			<li>Here we have to talk of a listening test regarding LN</li>
+		</ul>
 	</section>
 
-	<section>
-		<h1>Training tricks</h1>
-		<h2>Normalization: batchnorm</h2>
-		* Concept<p>
-		o practice
-	</section>
+<section>
+	<h1>Training: regularization with dropout</h1>
+	<img  style="margin-top:5%; float:left" width="15%" src="assets/dropout.gif" alt="">
+	<ul style="margin-top:5%;">
+		<li>Parts of the net randomly set to 0</li>
+		<li>No unit should be critical: <i>regularization</i></li>
+		<li>Probabilistic interpretation</li>
+	</ul>
+	<h6 style="margin-top:30%; color:gray">
+		N Srivastava, et al. "Dropout: a simple way to prevent neural networks from overfitting". JMLR. (2014) 15(1), 1929-1958.
+	</h6>
+</section>
 
-	<section>
-		<h1>Training tricks</h1>
-		<h2>Results</h2>
-	</section>
+<section>
+	<h1>Training</h1>
+	<h2>Regularization: results</h2>
+	<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+	<ul>
+		<li>We don't need regularization</li>
+	</ul>
+</section>
+
 </section>
 
 <section>
 	<section>
-		<h1>Training</h1>
-		<h2>Data augmentation</h2>
-		* sample overlap
+		<h1>Training: data augmentation</h1>
+		<img width="70%" style="float:center" src="assets/sample_overlap.svg" alt="">
+		<ul>
+			<li>Basic augmentation: overlap samples within each track</li>
+			<li>More advanced strategies</li>
+		</ul>
+		<h6 style="margin-top:10%; color:gray">
+			S. Uhlich, et al. "Improving music source separation based on deep neural networks through data augmentation and network blending." (2017) ICASSP.
+		</h6>
 	</section>
 
 	<section>
 		<h1>Training</h1>
-		<h2>Data augmentation</h2>
-		* training set size
-	</section>
-
-	<section>
-		<h1>Training</h1>
-		<h2>Data augmentation</h2>
-		o Results
+		<h2>Data augmentation: results</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Basic data augmentation is useful</li>
+			<li>Not shown: new tracks are better!</li>
+		</ul>
 	</section>
 </section>
 
 <section>
+
 	<section>
-		<h1>Training</h1>
-		<h2>Sampling strategy</h2>
-		* Naive approach: concatenate all data and pick from this
+		<h1>Training: sampling strategy</h1>
+		<img width="64%" style="float:left" src="assets/twsw.gif" alt="">
+		<ul>
+			<li>Non unique tracks in batch</li>
+			<li>Not all samples per epoch</li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Training: sampling strategy</h1>
+		<img width="64%" style="float:left" src="assets/twosw.gif" alt="">
+		<ul>
+			<li>Unique tracks in batch</li>
+			<li>Not all samples per epoch</li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Training: sampling strategy</h1>
+		<img width="64%" style="float:left" src="assets/twswo.gif" alt="">
+		<ul>
+			<li>Non unique tracks in batch</li>
+			<li>All samples per epoch</li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Training: sampling strategy</h1>
+		<img width="64%" style="float:left" src="assets/twoswo.gif" alt="">
+		<ul>
+			<li>Unique tracks in batch</li>
+			<li>All samples per epoch</li>
+		</ul>
 	</section>
 
 	<section>
 		<h1>Training</h1>
-		<h2>Sampling strategy</h2>
-		<img width="400px" style="float:right" src="assets/sampling.gif" alt="">
-
-		* two levels: track and sample<p>
-		* tracks: random or ensuring batch-diversity<p>
-		* samples: random or ensuring all data per epoch<p>
+		<h2>Sampling strategy: results</h2>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Unique tracks per batch not so useful</li>
+			<li>All samples per epoch is much better</li>
+		</ul>
 	</section>
-
-	<section>
-		<h1>Training</h1>
-		<h2>Sampling strategy</h2>
-		o results
-	</section>
+</section>
 
 	<section>
 		<h1>Training</h1>
