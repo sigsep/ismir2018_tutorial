@@ -983,9 +983,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h2>skip connection or not: results</h2>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>First</li>
-			<li>Second</li>
-			<li>Third</li>
+			<li>Worsen SIR much</li>
+			<li>Quantitative scores not clear</li>
+			<li>Let's listen to it!</li>
 		</ul>
 	</section>
 </section>
@@ -1176,6 +1176,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 </section>
 
+<section>
 	<section>
 		<h1>Training</h1>
 		<h2>Spectrogram quality</h2>
@@ -1190,8 +1191,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Final baseline model</h1>
-	figure
+	<h1>Final baseline models</h1>
+	<img  style="margin-top:0%; float:left" width="30%" src="assets/structure_final_OUM.svg" alt="">
+	<img  style="margin-top:0%; float:left" width="27%" src="assets/structure_final_OUMLN2.svg" alt="">
+	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OUMLN.svg" alt="">
 </section>
 
 
@@ -1199,99 +1202,128 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Outline</h1>
 	<h2>Testing</h2>
-	* Representation<p>
-	* Mono filter tricks<p>
-	* Going stereo<p>
-	* Multichannel Wiener filters<p>
+	<ul>
+		<li>Representation</li>
+		<li>Mono filter tricks</li>
+		<li>Multichannel Gaussian model</li>
+		<li>The multichannel Wiener filter</li>
+	</ul>
 </section>
 
 
 <section>
 	<h1>Testing: representations</h1>
 	<h2>Representation</h2>
-	o STFT wrongly done<p>
-	o SDR / perceptual comparison
+	<ul>
+		<li>First source of poor results: inverse STFT!</li>
+		<li>Verify perfect reconstruction</li>
+	</ul>
+	<p>
+	<ul>
+		<li>Image of a waveform with clicks every 512 samples</li>
+		<li>Player for this</li>
+	</ul>
 </section>
 
 <section>
 	<section>
 		<h1>Testing: mono filter tricks</h1>
-		<h2>Introducing `norbert`</h2>
-		o Set-up the testing final system <p>
-		o install norbert, try softmask
-	</section>
-
-	<section>
-		<h1>Testing: mono filter tricks</h1>
 		<h2>The huge impact of epsilons</h2>
-		* Adding epsilons to the spectrograms<p>
-		o impact on SDR
-	</section>
-
-	<section>
-		<h1>Testing: mono filter tricks</h1>
-		<h2>Soft masks, binary masks</h2>
-		* concepts<p>
-		* binary masks ideas<p>
-		o implementations and comparison<p>
+		<ul>
+			<li>Flooring spectrograms gives: $mask=\frac{v_j+\epsilon}{\sum_{j'} v_j'+\epsilon}$</li>
+			<li>For small $v_j$: strong interferences</li>
+		</ul>
+		<p>
+		Always do: $mask=\frac{v_j}{\epsilon + \sum_{j'} v_j'}$
+		<ul>
+			<li>Player with first option and $\epsilon=1e-3$</li>
+			<li>Player with second option and $\epsilon=1e-3$</li>
+		</ul>
 	</section>
 
 	<section>
 		<h1>Testing: mono filter tricks</h1>
 		<h2>Logit filters</h2>
-		* concepts<p>
-		o usage with norbert<p>
-		o performance<p>
+		<img  style="margin-top:0%; float:left" width="50%" src="assets/logit_trick.svg" alt="">
+		<ul>
+			<li>If the mask is 0.8... just put 1</li>
+			<li>If the mask is 0.2... just put 0</li>
+			<li>Cheap interference reduction</li>
+		</ul>
 	</section>
 </section>
 
 <section>
 	<section>
-		<h1>Testing: going stereo</h1>
-		<h2>First strategy: pretend it's mono</h2>
-		* Illustration
-		o performance
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="100%" src="assets/stereo_explanation_1.svg" alt="">
 	</section>
-
 	<section>
-		<h1>Testing: going stereo</h1>
-		<h2>Second strategy: pretend is mono twice</h2>
-		* illustration
-		o performance
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="100%" src="assets/stereo_explanation_2.svg" alt="">
+	</section>
+	<section>
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="100%" src="assets/stereo_explanation_3.svg" alt="">
+	</section>
+	<section>
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="100%" src="assets/stereo_explanation_4.svg" alt="">
+	</section>
+	<section>
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="100%" src="assets/stereo_explanation_5.svg" alt="">
+	</section>
+	<section>
+		<h1>Multichannel Gaussian model</h1>
+		<img  style="margin-top:0%; float:left" width="87%" src="assets/mixture_LGM.svg" alt="">
 	</section>
 </section>
-
 <section>
 	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
-		<h2>Modelling left-right correlations</h2>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:3%; float:center" width="70%" src="assets/joint_distribution_source_mix.svg" alt="">
+		<ul style="margin-top:3%">
+			<li>Sources and mixtures are jointly Gaussian</li>
+			<li>We observe the mix, what can we say about the sources?</li>
+		</ul>
 	</section>
-
 	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
-		<h2>Sources, mixtures</h2>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_1.svg" alt="">
 	</section>
-
 	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
-		<h2>Separation: conditioning Gaussians</h2>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_2.svg" alt="">
 	</section>
-
 	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_3.svg" alt="">
+	</section>
+	<section>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_4.svg" alt="">
+	</section>
+	<section>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_6.svg" alt="">
+	</section>
+	<section>
+		<h1>The multichannel Wiener filter</h1>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_7.svg" alt="">
+	</section>
+</section>
+<section>
+	<section>
+		<h1>The multichannel Wiener filter</h1>
 		<h2>Expectation maximization: the big picture</h2>
+		<img  style="margin-top:5%; float:left" width="100%" src="assets/expectation_maximization_big_picture.svg" alt="">
 	</section>
 
 	<section>
 		<h1>Testing: multichannel Wiener filters</h1>
 		<h2>A look into norbert</h2>
-	</section>
-
-	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
-		<h2>The smoothing trick</h2>
-		* concept<p>
-		o performance
+		now for the testing notebook and we finish with this ?
 	</section>
 </section>
 
@@ -1303,33 +1335,41 @@ An audio demo of the critical impact of engineering for the “same” system.
 		* A look at our baseline<p>
 		* overall importance of tricks<p>
 		* Performance comparison with state of the art<p>
-		o Resources
 	</section>
-
-
-	<!-- ALTERNATIVE STRUCTURES ? -->
-		<section>
-			<h1>DNN structures: a quick guided tour</h1>
-			<h2>The convolutional neural network (CNN)</h2>
-		</section>
-
-		<section>
-			<h1>DNN structures: a quick guided tour</h1>
-			<h2>Cocktails of CNN-RNN</h2>
-			* U-NET <p>
-			* MM-densnet
-		</section>
-
-		<section>
-			<h1>DNN structures: a quick guided tour</h1>
-			<h2>Skip-connections</h2>
-		</section>
-
 
 
 	<section>
 		<h1>Conclusion</h1>
-		<h2>Tracks for future research</h2>
+		<h2>What we left out</h2>
+		<ul>
+			<li>Alternative structures
+				<ul>
+					<li>The convolutional neural network (CNN)</li>
+					<li>The U-NET, the MM-densenet</li>
+				</ul>
+			</li>
+			<li>Full grid search over parameters (fund us!)</li>
+			<li>Advanced data augmentation (naive=+0.3dB SDR)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Conclusion</h1>
+		<h2>To make it work better</h2>
+		<ul>
+			<li>More data</li>
+			<li>Even more data</li>
+			<li>Did we mention more data?</li>
+		</ul>
+		<p>
+		<ul>
+			<li>Structures with more parameters work better...</li>
+			<li>Better signal processing helps</li>
+		</ul>
+		<p>
+		<ul>
+			<li>Evaluating the real impact of a contribution is difficult</li>
+		</ul>
 	</section>
 
 	<section>
@@ -1341,142 +1381,21 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>Model long term dependency</li>
 			<li>Representation learning for sound and music</li>
 			<li>Exploiting knowledge domain, user interaction</li>
-			<li>Unsupervised Learning ?</li>
+			<li>Unsupervised learning ?</li>
 		</ul>
 	</section>
 
+	<section>
+		<h1>Resources</h1>
+		<ul>
+			<li>SiSEC 2018 Website: <a href="https://sisec18.unmix.app">sisec18.unmix.app</a></li>
+			<li>References and Software tools: <a href="https://sigsep.github.io">sigsep.github.io</a></li>
+		</ul>
+	</section>
 </section>
 
 
-				<section>
-					<h1>Classical approach: an inverse problem</h1>
-					<img class="fragment" width="100%" style="float:center" src="assets/sources_mixing_separation.svg" alt="">
-				</section>
 
-				<section>
-					<h1><font color="black">Old and</font> <font color="red">new</font></h1>
-					<img class="fragment" width="100%" style="float:center" src="assets/overview.svg" alt="">
-				</section>
-
-				<!-- <section>
-					<section>
-						<h1>Classical source models</h1>
-						<h2>Non-negative matrix factorization (NMF)</h2>
-							<img class="stretch" style="margin-left: 25%" src="https://docs.google.com/drawings/d/e/2PACX-1vS1JrZuBXyzbaLEpt_ekUHVqENMcUWZkDjvhWvQSpN4vdUAr2asfRZzL471bpoUhbSNTN7b1nPojviG/pub?w=900&h=1024" alt="">
-
-						<aside class="notes">
-							We consider the identification of redundancy in the accompaniment through the assumption that its spectrogram may be well represented by only a few components. Techniques exploiting this idea then focus on algebraic methods that decompose the mixture spectrogram into the product of a few template spectra activated over time. One way to do so is via non-negative matrix factorization (NMF) [90], [91], which incorporates non-negative constraints.
-						</aside>
-					</section>
-
-					<section>
-						<h1>Classical source models</h1>
-						<h2>Repetitive sources (REPET)</h2>
-						<img style="float:left" src="https://docs.google.com/drawings/d/e/2PACX-1vTsnQlO0NWOqGKwG1ksYtD8oYpf2exFzCkHV6pX5COfgGCmJVNhl3E64qcgoq3dJwdapgK9eXltAUIH/pub?w=720" alt="">
-
-						<ul>
-						</ul>
-						<aside class="notes">
-							the approaches based on a repetition assumption for accompaniment. In a first analysis step, repetitions are identified. Then, they are used to build an estimate for the accompaniment spectrogram and proceed to separation.
-						</aside>
-					</section>
-				</section> -->
-
-				<section>
-					<section>
-						<h1>Music separation as a machine learning problem</h1>
-						<h2> Generative or discriminative </h2>
-						<img width="100%" src="assets/generative-discriminative.svg" alt="">
-					</section>
-
-					<section>
-						<h1>Music separation as a machine learning problem</h1>
-						<h2>Classification ...</h2>
-							<img width="66%" src="assets/binarymasking.svg" alt="">
-							<h4>Binary Masking</h4>
-						<h2> ... or regression ?</h2>
-							<img width="50%" src="assets/softmask.svg" alt="">
-							<h4>Softmask</h4>
-							<img width="50%" src="assets/direct.svg" alt="">
-							<h4>Magnitude Spectrogram</h4>
-					</section>
-
-					<section>
-						<h1>Music separation as a machine learning problem</h1>
-						<h2>Supervised ... </h2>
-						<img style="float:right" src="https://docs.google.com/drawings/d/e/2PACX-1vRXc_l4uNUTSOoAif8r4O-AKfAVBBMUSPVG_VMu79LjcZLb4xKLgFTVoSqVodvGetEvdeakfb4Nul-3/pub?w=400" alt="">
-						<ul>
-							<li>Single I/O: modeling sources independently</li>
-							<li>Multiple I/O: modeling sources jointly</li>
-							<li>Siamese networks, Chimera Networks</li>
-						</ul>
-
-
-						<h2>... or unsupervised ? <font color="red">(open direction)</font></h2>
-
-					</section>
-
-					<section>
-						<h1>Music separation as a machine learning problem</h1>
-						<h2>Modeling fixed-sized spectrograms ... ?</h2>
-						<ul>
-							<li>Separating chunks: straightforward reuse of image models</li>
-							<li>Batching over chunks</li>
-							<li>Fully connected, etc</li>
-						</ul>
-						<h2>... or learning dynamic models ?</h2>
-						<ul>
-							<li>Very long-term dependencies !</li>
-							<li>LSTM, CNN, etc</li>
-						</ul>
-					</section>
-				</section>
-
-
-				<!-- <section data-state="no-title-footer"  data-background-image="assets/hero_header.svg" data-background-size="80%">
-					<h1>MUS</h1>
-				</section> -->
-
-				<section>
-					<h1>A Baseline System</h1>
-					<img height="400px" style="float:right" src="assets/flow.svg" alt="">
-
-					<h2>Architectures II</h2>
-					<ul>
-						<li><b>Bidirectional LSTM <b style="color:red">[Huang 2014, Uhlich 2015, Takashi 2018]</b></b></li>
-						<li>Sequence2Sequence</li>
-						<li><b>Input (mix):</b> (sample, frames, frequency)</li>
-						<li><b>Output (targets):</b> (sample, frames, frequency, source)</li>
-					</ul>
-				</section>
-
-				<section data-state="no-title-footer" data-background="darkred">
-					<h1 style='color:white; font-size: 3.4em; margin-top: 2em;  margin-left: 1em'>DEMO</br><i class="fa fa-volume-up"></i></h1>
-				</section>
-
-				<section>
-					<h1>How trendy is DNN based source separation?</h1>
-					<ul>
-						<li>Fully Convolutional Networks <i class="fa fa-check"></i></li>
-						<li>Batch Normalization <i class="fa fa-check"></i></li>
-						<li>Skip-Connections <i class="fa fa-check"></i></li>
-						<li>GAN <i class="fa fa-check"></i></li>
-						<li>End-to-End Timedomain (Wavenet)<i class="fa fa-check"></i></li>
-						<li style="color:gray">Capsule Networks</li>
-						<li style="color:gray">Attention</li>
-						<li style="color:gray">Reinforcement Learning</li>
-						<li style="color:gray">...</li>
-					</ul>
-				</section>
-
-
-				<section>
-					<h1>Resources</h1>
-					<ul>
-						<li>SiSEC 2018 Website: <a href="https://sisec18.unmix.app">sisec18.unmix.app</a></li>
-						<li>References and Software tools: <a href="https://sigsep.github.io">sigsep.github.io</a></li>
-					</ul>
-				</section>
 
 
 			</div>
