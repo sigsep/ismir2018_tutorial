@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-cast-api-enabled="true">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="playlist-toolbar">
+    <div class="btn-group">
+      <span class="btn-pause btn btn-warning"><i class="fa fa-pause"></i></span>
+      <span class="btn-play btn btn-success"><i class="fa fa-play"></i></span>
+      <span class="btn-stop btn btn-danger"><i class="fa fa-stop"></i></span>
+      <span class="btn-rewind btn btn-success"><i class="fa fa-fast-backward"></i></span>
+      <span class="btn-fast-forward btn btn-success"><i class="fa fa-fast-forward"></i></span>
+    </div>
+  </div>
+</div>
+<div id="playlist"></div>
+
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="src/js/waveform-playlist.var.js"></script>
+<script type="text/javascript">
+var playlist = WaveformPlaylist.init({
+  samplesPerPixel: 1750,
+  waveHeight: 90,
+  container: document.getElementById("playlist"),
+  timescale: true,
+  state: 'cursor',
+  exclSolo: true,
+  colors: {
+    waveOutlineColor: '#E0EFF1',
+    fadeColor: 'red'
+  },
+  controls: {
+    show: true, //whether or not to include the track controls
+    width: 200 //width of controls in pixels
+  },
+  zoomLevels: [1750]
+});
+
+playlist.load([
+  {
+    "src": "audio_x/mixture.m4a",
+    "name": "Mixture",
+    'soloed': true,
+    'muted': true,
+    "customClass": "mix",
+  },
+  {
+    "src": "audio_x/vocals.m4a",
+    "name": "Vocals",
+    'soloed': false,
+    'muted': false,
+    "customClass": "vocals"
+  },
+  {
+    "src": "audio_x/drums.m4a",
+    "name": "Drums",
+    'soloed': false,
+    'muted': false,
+    "customClass": "drums"
+  },
+  {
+    "src": "audio_x/bass.m4a",
+    "name": "Bass",
+    'soloed': false,
+    'muted': false,
+    "customClass": "other"
+  },
+  {
+    "src": "audio_x/other.m4a",
+    "name": "Other",
+    'soloed': false,
+    'muted': false,
+    "customClass": "bass"
+  }
+]).then(function() {
+  //can do stuff with the playlist.
+});
+
+</script>
+<script type="text/javascript" src="src/js/emitter.js"></script>
+
+
+</body>
+</html>
