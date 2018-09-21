@@ -885,6 +885,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<ul>
 			<li>Input/output scaling always lead to better performance</li>
 			<li>We use scaling systematically</li>
+			<li>all SDR, MISSING LOSS</li>
 		</ul>
 	</section>
 </section>
@@ -903,6 +904,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<ul>
 			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
 			<li><strong>Overlap</strong>: 75%</li>
+			<li>all SDR<li>
 		</ul>
 	</section>
 </section>
@@ -916,8 +918,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>Reduce dimensionality in network?</li>
 			<li>Fixed or trainable reduction</li>
 			<li>Should we handcraft features?</li>
-			<li>VERIFY THE NETWORKS</li>
-			<li>CHECK #PARAMETERS</li>
+			<li>VERIFY THE NETWORKS (to make it comparable)</li>
+			<li>CHECK #PARAMETERS (400k mel, 600k FC)</li>
 		</ul>
 	</section>
 	<section>
@@ -928,6 +930,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>Hand-crafted features are not worth it</li>
 			<li>Learning representations is the way to go</li>
 			<li>PCA is an option, but computationally demanding for no real benefit</li>
+			<li>sdr between them is same</li>
+			<li>sdr with vanilla 4.2, here 4.1: drop of 0.1db but /10#parmaeters</li>
 		</ul>
 	</section>
 </section>
@@ -970,6 +974,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<ul>
 			<li>The more parameters, the better</li>
 			<li>The more context, the better</li>
+			<li>factor plot of the loss</li>
+			<li>SDR for the smallest loss</li>
 		</ul>
 	</section>
 	<section>
@@ -980,6 +986,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h1>DNN structure: LSTM vs BLSTM</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
+			<li>all loss</li>
+			<li>all bsseval</li>
+
 			<li>BLSTM are better.</li>
 			<li>WHAT ABOUT BLSTM vs LSTM of TWICE THE SIZE ?</li>
 		</ul>
@@ -996,9 +1005,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h1>DNN structure: skip connection</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
+			<li>same scores more or less, but drums and bass get better</li>
 			<li>Seem to worsen SIR... but quantitative scores not clear</li>
 			<li>Let's listen to it!</li>
 			<li>PLAYER HERE?</li>
+			<li>all loss</li>
+			<li>all bsseval</li>
 		</ul>
 	</section>
 </section>
@@ -1092,6 +1104,13 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 			<li>Keep default parameters for learning rates</li>
 			<li>The impact of layernorm is unclear in metrics</li>
 			<li>PLAYER HERE?</li>
+			<li>explain that BN is shitty (mismatch train/test)</li>
+			<li>explain that learning rate must be 1e-3</li>
+			<li>explain that BN is shitty</li>
+			<li>explain that LN leads to better SIR but worst SDR vocals</li>
+			<li>all loss</li>
+			<li>bsseval for best learning rate, LN and no LN</li>
+			<li>decided to promote SDR vocals over SIR vocals.</li>
 		</ul>
 	</section>
 
@@ -1112,33 +1131,11 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 	<h1>Training: regularization with dropout</h1>
 	<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 	<ul>
+		<li>loss: which is worse so no SDR</li>
 		<li>Regularization does not really help</li>
 	</ul>
 </section>
 
-</section>
-
-<section>
-	<section>
-		<h1>Training: data augmentation</h1>
-		<img width="70%" style="float:center" src="assets/sample_overlap.svg" alt="">
-		<ul>
-			<li>Basic augmentation: overlap samples within each track</li>
-			<li>There are more advanced strategies</li>
-		</ul>
-		<h6 style="margin-top:10%; color:gray">
-			S. Uhlich, et al. "Improving music source separation based on deep neural networks through data augmentation and network blending." (2017) ICASSP.
-		</h6>
-	</section>
-
-	<section>
-		<h1>Training: data augmentation</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li>Basic data augmentation is useful to some extent</li>
-			<li>Not shown: new tracks are better!</li>
-		</ul>
-	</section>
 </section>
 
 <section>
@@ -1183,8 +1180,35 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<h1>Training: sampling strategy</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
+			<li>all loss</li>
+			<li>MISSING SDR of best loss</li>
 			<li>Unique tracks per batch not so useful</li>
 			<li>All samples per epoch is much better</li>
+		</ul>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Training: data augmentation</h1>
+		<img width="70%" style="float:center" src="assets/sample_overlap.svg" alt="">
+		<ul>
+			<li>Basic augmentation: overlap samples within each track</li>
+			<li>There are more advanced strategies</li>
+		</ul>
+		<h6 style="margin-top:10%; color:gray">
+			S. Uhlich, et al. "Improving music source separation based on deep neural networks through data augmentation and network blending." (2017) ICASSP.
+		</h6>
+	</section>
+
+	<section>
+		<h1>Training: data augmentation</h1>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>Basic data augmentation is useful to some extent (0.5)</li>
+			<li>Not shown: new tracks are better!</li>
+			<li>loss</li>
+			<li>bsseval: every thing</li>
 		</ul>
 	</section>
 </section>
@@ -1206,10 +1230,17 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 <section>
 	<h1>Final baseline models</h1>
+	LSTM SKIP
 	<img  style="margin-top:0%; float:left" width="30%" src="assets/structure_final_OUM.svg" alt="">
+  LN no skip
 	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OUMLN.svg" alt="">
 </section>
 
+
+<section>
+	<h1>Final baseline models</h1>
+	vocal SDR and vocals SIR of these 2 vs sisec participants
+</section>
 
 <!-- TESTING -->
 <section>
