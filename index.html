@@ -133,9 +133,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h1>Concepts and background</h1>
 	<h2>Hands on time-frequency representations</h2>
 	<ul class="practice">
-		<li>Set up the ipynb</li>
+		<li>Start the notebook session</li>
 		<li>For one track, display waveforms, play some audio</li>
-		<li>Display spectrograms</li>
+		<li>Display spectrogram of mixture</li>
 	</ul>
 </section>
 
@@ -160,7 +160,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<ul class="practice">
 	<li>Get spectrograms of the sources</li>
 	<li>Display the corresponding soft-mask for vocals</li>
-	<li>apply it on the mixture, reconstruct and listen to the result</li>
+	<li>Apply it on the mixture, reconstruct and listen to the result</li>
 </section>
 
 <section>
@@ -554,7 +554,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<img width="60%" src="assets/hero.svg" alt="">
 	<h2>hands-on</h2>
 	<ul class="practice">
-		<li>Install musdb</li>
 		<li>Loop over some musdb tracks</li>
 	</ul>
 </section>
@@ -589,7 +588,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h1>Evaluating quality</h1>
 	<h2>Hands-on</h2>
 	<ul class="practice">
-		<li>Evaluate oracle separation on musdb</li>
+		<li>Evaluate our separation system on musdb</li>
 		<li>Compare to state of the art (SiSEC18)</li>
 	</ul>
 </section>
@@ -720,13 +719,13 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h2>Automatic differentiation with pytorch autograd</h2>
 	<ul class="practice">
 		<li>Illustration of pytorch autograd</li>
-		<li>Putting it together: learning a MNIST digit classification net ?</li>
+		<li>Putting it together: learning a MNIST digit classification net</li>
 	</ul>
 </section>
 
 
 <section>
-	<h1>Modeling temporal data</h1>
+	<h1>Deep neural networks: modeling temporal data</h1>
 	<h6 style="margin-top:50%; color:gray">
 		colah's blog, <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a>, 2015.
 	</h6>
@@ -734,29 +733,29 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Modeling temporal data</h1>
-		<h2>From fully connected to the vanilla recurrent net</h2>
+		<h1>Deep neural networks: modeling temporal data</h1>
+		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_1.svg" alt="">
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
-		<h2>From fully connected to the vanilla recurrent net</h2>
+		<h1>Deep neural networks: modeling temporal data</h1>
+		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_2.svg" alt="">
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
-		<h2>From fully connected to the vanilla recurrent net</h2>
+		<h1>Deep neural networks: modeling temporal data</h1>
+		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/time_distributed_dense.svg" alt="">
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
-		<h2>From fully connected to the vanilla recurrent net</h2>
+		<h1>Deep neural networks: modeling temporal data</h1>
+		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_3.svg" alt="">
 	</section>
 
 	<section>
-		<h1>Modeling temporal data</h1>
-		<h2>The vanilla recurrent net</h2>
+		<h1>Deep neural networks: modeling temporal data</h1>
+		<h2>The simple recurrent net</h2>
 		<img  style="float:left" width="24%" src="assets/recurrent_layer_4.svg" alt="">
 		<ul>
 			<li>$y_{t}=f\left(linear\left\{ x_{t},y_{t-1}\right\} \right)$</li>
@@ -764,8 +763,11 @@ An audio demo of the critical impact of engineering for the “same” system.
 				<ul>
 					<li>Exponential decay of information</li>
 					<li>Vanishing gradient for training</li>
-				</ul></li><p>
-			<li>We need to model long-term dependencies</li>
+				</ul></li>
+		</ul>
+		<p>
+		<ul>
+			<li>Limited for long-term dependencies</li>
 		</ul>
 		<h6 style="margin-top:30%; color:gray">
 			P. Huang, et al. "Deep learning for monaural speech separation". (2014) ICASSP.
@@ -775,17 +777,17 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_1.svg" alt="">
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_2.svg" alt="">
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="80%" src="assets/lstm_3.svg" alt="">
 	</section>
@@ -793,7 +795,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_1.svg" alt="">
 		<ul>
@@ -802,7 +804,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_2.svg" alt="">
 		<ul>
@@ -811,7 +813,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Modeling temporal data</h1>
+		<h1>Deep neural networks: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_3.svg" alt="">
 		<ul>
@@ -827,10 +829,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<h1>Our vanilla deep neural net for separation</h1>
-	<img width="48%" style="float:left" src="assets/vanilla_lstm.svg" alt="">
-	<ul>
-		<li>Two layers</li>
-		<li>dim LSTM output=512 $\Rightarrow$ 6M parameters</li>
+	<img width="48%" style="margin-top:5%; float:left" src="assets/vanilla_lstm.svg" alt="">
+	<img width="20%" style="float:left" src="assets/vanilla.svg" alt="">
+	<ul style="margin-top:5%;">
+		<li>One LSTM</li>
+		<li>One fully connected</li>
+		<li>6 million parameters</li>
 	</ul>
 	<p>
 	<ul class="practice">
@@ -839,14 +843,19 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Get data into the model</h1>
-	<h2>Spectrogram sampling</h2>
+	<h1>Spectrogram sampling</h1>
 	<img width="100%" style="float:center" src="assets/sample_supervised_temporal.svg" alt="">
+	<ul class="practice">
+		<li>How to get data into the model</li>
+	</ul>
 </section>
 
 <section>
 	<h1>Our vanilla deep neural net for separation</h1>
 	<img width="100%" style="float:center" src="assets/vanilla_lstm_test.svg" alt="">
+	<ul class="practice">
+		<li>Use the vanilla model for separation</li>
+	</ul>
 </section>
 
 <section>
@@ -861,16 +870,14 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Fourier transform parameters</h2>
+		<h1>Representation: Fourier transform</h1>
 		<img width="100%" style="float:center" src="assets/FFT_parameters.svg" alt="">
 		<ul>
 			<li>Network is always fed 360ms of context</li>
 		</ul>
 	</section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Fourier transform parameters</h2>
+		<h1>Representation: Fourier transform</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
@@ -881,8 +888,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Standardization</h2>
+		<h1>Representation: standardization</h1>
 		<img width="47%" style="float:left" src="assets/standardization.svg" alt="">
 		<ul>
 			<li>Compensate different features scales</li>
@@ -891,29 +897,29 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Standardization</h2>
+		<h1>Representation: standardization</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>Input scaling always lead to better performance</li>
+			<li>Input/output scaling always lead to better performance</li>
+			<li>We use scaling systematically</li>
 		</ul>
 	</section>
 </section>
 
 <section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Input dimensionality reduction</h2>
-		<img width="55%" style="float:left" src="assets/input_dimensionality_reduction.svg" alt="">
+		<h1>Representation: input dimensionality reduction</h1>
+		<img width="54%" style="float:left" src="assets/input_dimensionality_reduction.svg" alt="">
 		<ul>
-			<li>After scaling: reduce redundancy?</li>
+			<li>Reduce dimensionality in network?</li>
 			<li>Fixed or trainable reduction</li>
 			<li>Should we handcraft features?</li>
+			<li>VERIFY THE NETWORKS</li>
+			<li>CHECK #PARAMETERS</li>
 		</ul>
 	</section>
 	<section>
-		<h1>Representation</h1>
-		<h2>Input dimensionality reduction</h2>
+		<h1>Representation: input dimensionality reduction</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li>Hand-crafted features are not worth it</li>
@@ -927,6 +933,13 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Outline</h1>
 	<h2>DNN Structure: optimizing the vanilla net</h2>
+	<img width="22%" style="margin-top:5%; float:left" src="assets/fancy_vanilla.svg" alt="">
+	<p>
+	<ul style="margin-top:5%;">
+		<li>Network dimensions</li>
+		<li>LSTM vs BLSTM</li>
+		<li>Skip connection</li>
+	</ul>
 </section>
 <!--
 <section>
@@ -946,45 +959,44 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h1>DNN structure: network dimension</h1>
 		<img width="73%" style="float:left" src="assets/structure_tuning.svg" alt="">
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>Results</h2>
+		<h1>DNN structure: network dimension</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>First</li>
-			<li>Second</li>
-			<li>Third</li>
+			<li>The more parameters, the better</li>
+			<li>The more context, the better</li>
 		</ul>
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h1>DNN structure: LSTM vs BLSTM</h1>
 		<img width="60%" style="float:left" src="assets/structure_tuning_blstm.svg" alt="">
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>LSTM vs BLSTM: results</h2>
+		<h1>DNN structure: LSTM vs BLSTM</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>First</li>
-			<li>Second</li>
-			<li>Third</li>
+			<li>BLSTM are better.</li>
+			<li>WHAT ABOUT BLSTM vs LSTM of TWICE THE SIZE ?</li>
 		</ul>
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
+		<h1>DNN structure: skip connection</h1>
 		<img width="42%" style="float:left" src="assets/structure_tuning_skip.svg" alt="">
+		<ul>
+			<li>Should reduce vanishing gradient</li>
+			<li>Much used in very deep nets</li>
+		</ul>
 	</section>
 	<section>
-		<h1>DNN structures: optimizing the vanilla net</h1>
-		<h2>skip connection or not: results</h2>
+		<h1>DNN structure: skip connection</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>Worsen SIR much</li>
-			<li>Quantitative scores not clear</li>
+			<li>Seem to worsen SIR... but quantitative scores not clear</li>
 			<li>Let's listen to it!</li>
+			<li>PLAYER HERE?</li>
 		</ul>
 	</section>
 </section>
@@ -992,6 +1004,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<h1>Recap: current structure for the baseline</h1>
 	<img width="42%" style="float:left" src="assets/structure_after_tuning.svg" alt="">
+	<ul>
+		<li>CHECK SKIP</li>
+		<li>SIMILAR TO SOME REFERENCE ?</li>
+		<li>CHECK #PARAMS</li>
+	</ul>
+
 </section>
 
 
@@ -1009,37 +1027,34 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Training</h1>
-		<h2>The cost function jungle</h2>
+		<h1>Training: the cost function jungle</h1>
 			<img width="20%" style="float:left" src="assets/cost_function.svg" alt="">
-			<img width="30%" style="float:right" src="assets/costfunction_jungle.gif" alt="">
-		<ul>
-			<li>$loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right)\right)$</li>
+$loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right)\right)$<p>
+	<img width="30%" style="float:right" src="assets/costfunction_jungle.gif" alt="">
+			<ul>
 			<li>Wide variety of cost functions $d\left(a,b\right)$
 				<ul>
 					<li>squared loss $\left|a-b\right|^2$</li>
 					<li>absolute loss $\left|a-b\right|$</li>
 					<li>Kullback Leibler loss $a\log\frac{a}{b}-a+b$</li>
 					<li>Itakura Saito loss $\frac{a}{b}-\log\frac{a}{b}-1$</li>
-					<li>Cauchy, alpha divergence, ...
+					<li>Cauchy, alpha divergence, ...<p></li>
 				</ul>
 			</li>
 			<li>Applied on $Y$, $Y^2$, any $Y^\alpha$, $\log Y$, ...</li>
-			<li>Theoretical grounds for all</li>
+			<li>Theoretical groundings for all</li>
 		</ul>
-		<h6 style="margin-top:2%; color:gray">
+		<h6 style="margin-top:5%; color:gray">
 			C. Févotte, et al. "Algorithms for nonnegative matrix factorization with the β-divergence." Neural computation 23.9 (2011): 2421-2456.
 		</h6>
-		<h6 style="margin-top:2%; color:gray">
+		<h6 style="margin-top:1%; color:gray">
 			A. Liutkus, et al. "Generalized Wiener filtering with fractional power spectrograms." (2015) ICASSP.
 		</h6>
 		<!-- SOME HANDS ON IN THE PRACTICE SESSION ? -->
 	</section>
 
 	<section>
-		<h1>Training</h1>
-		<h2>Cost functions: some results</h2>
-		<p>
+		<h1>Training: the cost function jungle</h1>
 		<img width="30%" style="float:center" src="assets/costfunctions_SDR.png" alt="">
 		<img width="30%" style="float:center" src="assets/costfunctions_SIR.png" alt="">
 		<img width="30%" style="float:center" src="assets/costfunctions_SAR.png" alt="">
@@ -1069,18 +1084,18 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</section>
 
 	<section>
-		<h1>Training</h1>
-		<h2>Learning rate and normalization: results</h2>
+		<h1>Training: learning rate and normalization</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li>Keep default parameters for learning rates</li>
-			<li>Here we have to talk of a listening test regarding LN</li>
+			<li>The impact of layernorm is unclear in metrics</li>
+			<li>PLAYER HERE?</li>
 		</ul>
 	</section>
 
 <section>
 	<h1>Training: regularization with dropout</h1>
-	<img  style="margin-top:5%; float:left" width="15%" src="assets/dropout.gif" alt="">
+	<img  style="margin-top:5%; float:left" width="30%" src="assets/dropout.gif" alt="">
 	<ul style="margin-top:5%;">
 		<li>Parts of the net randomly set to 0</li>
 		<li>No unit should be critical: <i>regularization</i></li>
@@ -1092,11 +1107,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Training</h1>
-	<h2>Regularization: results</h2>
+	<h1>Training: regularization with dropout</h1>
 	<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 	<ul>
-		<li>We don't need regularization</li>
+		<li>Regularization does not really help</li>
 	</ul>
 </section>
 
@@ -1108,7 +1122,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<img width="70%" style="float:center" src="assets/sample_overlap.svg" alt="">
 		<ul>
 			<li>Basic augmentation: overlap samples within each track</li>
-			<li>More advanced strategies</li>
+			<li>There are more advanced strategies</li>
 		</ul>
 		<h6 style="margin-top:10%; color:gray">
 			S. Uhlich, et al. "Improving music source separation based on deep neural networks through data augmentation and network blending." (2017) ICASSP.
@@ -1116,11 +1130,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 
 	<section>
-		<h1>Training</h1>
-		<h2>Data augmentation: results</h2>
+		<h1>Training: data augmentation</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
-			<li>Basic data augmentation is useful</li>
+			<li>Basic data augmentation is useful to some extent</li>
 			<li>Not shown: new tracks are better!</li>
 		</ul>
 	</section>
@@ -1165,8 +1178,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 
 	<section>
-		<h1>Training</h1>
-		<h2>Sampling strategy: results</h2>
+		<h1>Training: sampling strategy</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li>Unique tracks per batch not so useful</li>
@@ -1177,14 +1189,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Training</h1>
-		<h2>Spectrogram quality</h2>
+		<h1>Training: spectrogram quality</h1>
 		* Introducing musmag dataset
 	</section>
 
 	<section>
-		<h1>Training</h1>
-		<h2>Spectrogram quality</h2>
+		<h1>Training: spectrogram quality</h1>
 		o Performance comparison
 	</section>
 </section>
@@ -1212,10 +1222,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<h1>Testing: representations</h1>
-	<h2>Representation</h2>
 	<ul>
-		<li>First source of poor results: inverse STFT!</li>
+		<li>The first source of poor results: inverse STFT!</li>
 		<li>Verify perfect reconstruction</li>
+		<li>Better: use established libraries</li>
 	</ul>
 	<p>
 	<ul>
@@ -1249,6 +1259,12 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>If the mask is 0.2... just put 0</li>
 			<li>Cheap interference reduction</li>
 		</ul>
+		<p>
+		<ul>
+			<li>Demo without mask compression</li>
+			<li>Demo with mask compression</li>
+		</ul>
+
 	</section>
 </section>
 
@@ -1321,9 +1337,27 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 	<section>
 		<h1>Testing: multichannel Wiener filters</h1>
-		<h2>A look into norbert</h2>
-		now for the testing notebook and we finish with this ?
+		<ul class="practice">
+			<li>Use norbert for filtering</li>
+		</ul>
+		<p>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li>First</li>
+			<li>Second</li>
+		</ul>
 	</section>
+</section>
+
+<section>
+	<h1>Outline</h1>
+	<h2>Conclusion</h2>
+	<ul>
+		<li>Resulting baseline</li>
+		<li>What was kept out</li>
+		<li>What is promising</li>
+		<li>Ending remarks</li>
+	</ul>
 </section>
 
 
@@ -1338,23 +1372,36 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 
 	<section>
-		<h1>Conclusion</h1>
-		<h2>What we left out</h2>
+		<h1>Conclusion: what was kept out</h1>
+		<ul>
+			<li>Exotic representations</li>
+		</ul>
+		<p>
+		<img width="22%" style="float:left" src="assets/crazy_vanilla.svg" alt="">
 		<ul>
 			<li>Alternative structures
 				<ul>
 					<li>The convolutional neural network (CNN)</li>
-					<li>The U-NET, the MM-densenet</li>
+					<li>The U-NET</li>
+					<li>The MM-densenet</li>
 				</ul>
 			</li>
+			<li>Generative approaches
+				<ul>
+					<li>Generative adversarial nets</li>
+					<li>(Variational) auto encoders</li>
+				</ul>
+			</li>
+		</ul>
+		<p>
+		<ul>
 			<li>Full grid search over parameters (fund us!)</li>
 			<li>Advanced data augmentation (naive=+0.3dB SDR)</li>
 		</ul>
 	</section>
 
 	<section>
-		<h1>Conclusion</h1>
-		<h2>To make it work better</h2>
+		<h1>Conclusion: what is promising</h1>
 		<ul>
 			<li>More data</li>
 			<li>Even more data</li>
@@ -1367,13 +1414,13 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 		<p>
 		<ul>
-			<li>Evaluating the real impact of a contribution is difficult</li>
+			<li>We got 3dB improvement with no publishable contribution<p>
+			$\Rightarrow$ evaluating the real impact of a contribution is difficult</li>
 		</ul>
 	</section>
 
 	<section>
-		<h1>Conclusion</h1>
-		<h2>Concluding remarks</h2>
+		<h1>Conclusion: ending remarks</h1>
 		<ul>
 			<li>Convergence of signal processing, probability theory and DL</li>
 			<li>Learning with limited amount of data</li>
@@ -1382,9 +1429,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>Exploiting knowledge domain, user interaction</li>
 			<li>Unsupervised learning ?</li>
 		</ul>
-	</section>
-
-	<section>
+		<p>
 		<h1>Resources</h1>
 		<ul>
 			<li>SiSEC 2018 Website: <a href="https://sisec18.unmix.app">sisec18.unmix.app</a></li>
@@ -1392,10 +1437,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 </section>
-
-
-
-
 
 			</div>
 			<div class='footer'>
