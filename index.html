@@ -719,7 +719,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h2>Automatic differentiation with pytorch autograd</h2>
 	<ul class="practice">
 		<li>Illustration of pytorch autograd</li>
-		<li>Putting it together: learning a MNIST digit classification net</li>
 	</ul>
 </section>
 
@@ -846,7 +845,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<h1>Spectrogram sampling</h1>
 	<img width="100%" style="float:center" src="assets/sample_supervised_temporal.svg" alt="">
 	<ul class="practice">
-		<li>How to get data into the model</li>
+		<li>Build a naive data sampler</li>
+		<li>Start training the vanilla!</li>
 	</ul>
 </section>
 
@@ -858,37 +858,20 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</ul>
 </section>
 
+
 <section>
 	<h1>Outline</h1>
-	<h2>Representations</h2>
+	<h2>Choosing the right representation</h2>
 	<ul>
-		<li> Fourier transforms parameters</li>
 		<li>Input dimensionality reduction</li>
+		<li>Fourier transforms parameters</li>
 		<li>Standardization</li>
 	</ul>
 </section>
 
 <section>
 	<section>
-		<h1>Representation: Fourier transform</h1>
-		<img width="100%" style="float:center" src="assets/FFT_parameters.svg" alt="">
-		<ul>
-			<li>Network is always fed 360ms of context</li>
-		</ul>
-	</section>
-	<section>
-		<h1>Representation: Fourier transform</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
-			<li><strong>Overlap</strong>: 75%</li>
-		</ul>
-	</section>
-</section>
-
-<section>
-	<section>
-		<h1>Representation: standardization</h1>
+		<h1>Choosing the right representation: standardization</h1>
 		<img width="47%" style="float:left" src="assets/standardization.svg" alt="">
 		<ul>
 			<li>Compensate different features scales</li>
@@ -897,7 +880,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Representation: standardization</h1>
+		<h1>Choosing the right representation: standardization</h1>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li>Input/output scaling always lead to better performance</li>
@@ -908,7 +891,26 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Representation: input dimensionality reduction</h1>
+		<h1>Choosing the right representation: Fourier transform</h1>
+		<img width="100%" style="float:center" src="assets/FFT_parameters.svg" alt="">
+		<ul>
+			<li>Network is always fed 360ms of context</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Choosing the right representation: Fourier transform</h1>
+		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<ul>
+			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
+			<li><strong>Overlap</strong>: 75%</li>
+		</ul>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Choosing the right representation</h1>
+		<h2>Input dimensionality reduction</h2>
 		<img width="54%" style="float:left" src="assets/input_dimensionality_reduction.svg" alt="">
 		<ul>
 			<li>Reduce dimensionality in network?</li>
@@ -919,7 +921,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Representation: input dimensionality reduction</h1>
+		<h1>Choosing the right representation</h1>
+		<h2>Input dimensionality reduction</h2>
 		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
 		<ul>
 			<li>Hand-crafted features are not worth it</li>
@@ -928,7 +931,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 </section>
-
 
 <section>
 	<h1>Outline</h1>
@@ -1190,7 +1192,10 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 <section>
 	<section>
 		<h1>Training: spectrogram quality</h1>
-		* Introducing musmag dataset
+		<ul>
+			<li>Introducing musmag dataset</li>
+			<li>norbert</li>
+		</ul>
 	</section>
 
 	<section>
@@ -1202,7 +1207,6 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 <section>
 	<h1>Final baseline models</h1>
 	<img  style="margin-top:0%; float:left" width="30%" src="assets/structure_final_OUM.svg" alt="">
-	<img  style="margin-top:0%; float:left" width="27%" src="assets/structure_final_OUMLN2.svg" alt="">
 	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OUMLN.svg" alt="">
 </section>
 
