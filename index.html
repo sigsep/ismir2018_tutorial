@@ -80,7 +80,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<ul>
 		<li>Automatic Karaoke</li>
 		<li>Creative Music Production</li>
-		<li>Personal Remixing</li>
+		<li>Active listening</li>
 		<li>Upmixing (stereo $\Rightarrow$ 5.1)</li>
 		<li>Music Education</li>
 		<li>Pre-processing for MIR</li>
@@ -91,24 +91,55 @@ An audio demo of the critical impact of engineering for the “same” system.
 	<iframe class="stretch" data-src="audio/player_x.html"></iframe>
 </section>
 
+<section>
+	<h1>Motivations</h1>
+	<ul>
+		<li>Intense past research
+		<ul>
+			<li>Many evaluation campaigns: MIREX, SiSEC</li>
+			<li>Recent breakthroughs: <strong>separation works</strong></li>
+		</ul>
+		<li>Difficult topic
+		<ul>
+			<li>Signal processing skills</li>
+			<li>Deep learning experience</li>
+		</ul>
+		</li>
+		<li>Objectives of this tutorial
+		<ul>
+			<li>Basics of DNN, basics of signal processing</li>
+			<li>Understand an open-source state of the art system</li>
+			<li>Implement it!</li>
+		</ul>
+	</ul>
+		<img width="30%" style="float:right; margin-top:30%;" src="assets/stefanyuki.svg" alt="">
+</section>
 
 <section>
-	<h1>Introduction</h1>
+	<h1>Tutorial outline</h1>
 	<ul>
-		<li>Concepts and background</li>
-		<li>A brief history</li>
+		<li>Introduction</li>
+		<li>Our vanilla model</li>
+		<li>Choosing the right representation</l1>
+		<li>Tuning the DNN Structure</li>
+		<li>Training tricks</li>
+		<li>Testing tricks</li>
+		<li>Conclusion</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Outline</h2>
+	<h2>Introduction</h2>
+	<ul>
+		<li>Time-frequency representations</li>
+		<li>Filtering</li>
+		<li>A brief history of separation</li>
 		<li>Datasets</li>
 		<li>Deep neural networks</li>
 	</ul>
 </section>
 
-<!-- CONCEPTS AND BACKGROUND -->
-
-<section>
-	<h1>Introduction</h1>
-	<h2>Concepts and background</h2>
-	Time-frequency representations
-</section>
 
 <section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
 	<!-- <h1><button data-audio="assets/demotrack/mixture.m4a">▶</button></h1> -->
@@ -130,8 +161,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Concepts and background</h1>
-	<h2>Hands on time-frequency representations</h2>
+	<h1>Introduction: time-frequency representations</h1>
+	<h2>Hands on</h2>
 	<ul class="practice">
 		<li>Start the notebook session</li>
 		<li>For one track, display waveforms, play some audio</li>
@@ -140,8 +171,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Concepts and background</h1>
-	<h2>Time-frequency as pre-whitening</h2>
+	<h1>Introduction: time-frequency representations</h1>
+	<h2>Spectral analysis as pre-whitening</h2>
 	<img style="float:right" width="50%" src="assets/fourier_whitening.svg" alt="">
 	<ul>
 		<li>Frames too short: not diagonalized</li>
@@ -149,14 +180,14 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</ul>
 </section>
 <section>
-	<h1>Concepts and background</h1>
-	<h2>Time-frequency as pre-whitening</h2>
+	<h1>Introduction: time-frequency representations</h1>
+	<h2>Spectral analysis as pre-whitening</h2>
 	<img width="90%" src="assets/STFT.gif" alt="">
 </section>
 
 <section>
-	<h1>Concepts and background</h1>
-	<h2>post-processing: filtering</h2>
+	<h1>Introduction: filtering</h1>
+	<h2>Hands on</h2>
 	<ul class="practice">
 	<li>Get spectrograms of the sources</li>
 	<li>Display the corresponding soft-mask for vocals</li>
@@ -165,55 +196,43 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_1.svg" alt="">
 	</section>
 	<section transition='none'>
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_2.svg" alt="">
 	</section>
 	<section transition='none'>
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_3.svg" alt="">
 	</section>
 	<section transition='none'>
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_4.svg" alt="">
 	</section>
 	<section data-transition="none">
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_5.svg" alt="">
 		<img class="fragment" style="float:right" width="100%" src="assets/soft_masking_formula_potatoes.svg" alt="">
 	</section>
 	<section transition='none'>
-		<h1>Concepts and background</h1>
-		<h2>post-processing: filtering</h2>
+		<h1>Introduction: filtering</h1>
 		<img width="75%" src="assets/soft_masking_4.svg" alt="">
 		<img style="float:right" width="100%" src="assets/soft_masking_formula.svg" alt="">
 	</section>
 </section>
 
 <section>
-	<h1>Concepts and background</h1>
+	<h1>Introduction: a brief history</h1>
 	<h2>The big picture</h2>
 	<div class="centered">
-		<img width="93%" class="stretch" src="assets/discriminative_big_picture.svg" alt="">
+		<img width="90%" class="stretch" src="assets/discriminative_big_picture.svg" alt="">
 	</div>
-</section>
-
-<!-- A BRIEF HISTORY -->
-<section>
-	<h1>Introduction</h1>
-	<h2>A brief history</h2>
-	<h6 style="margin-top:40%; color:gray">
+	<h6 style="margin-top:4%; color:gray">
 	Rafii, Zafar, et al. "An Overview of Lead and Accompaniment Separation in Music."
 	IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP) 26.8 (2018): 1307-1335.
-</h6>
+	</h6>
 </section>
 
 <section>
@@ -307,7 +326,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Music separation datasets</h1>
+	<h1>Introduction: music separation datasets</h1>
 	<table>
 	   <thead>
 	      <tr>
@@ -536,14 +555,13 @@ An audio demo of the critical impact of engineering for the “same” system.
 	         </td>
 	         <td>✔️ / ✔️</td>
 					 <td>9h50m</td>
-
 	      </tr>
 	   </tbody>
 	</table>
 </section>
 
 <section>
-	<h2>The musdb dataset</h2>
+	<h2>Introduction: the musdb dataset</h2>
 	<ul>
 		<li>100 train / 50 test full tracks</li>
 		<li>Mastered with pro. digital audio workstations</li>
@@ -552,15 +570,11 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</ul>
 	<img width="320px" style="float: right" src="assets/ni_logo.png" alt="">
 	<img width="60%" src="assets/hero.svg" alt="">
-	<h2>hands-on</h2>
-	<ul class="practice">
-		<li>Loop over some musdb tracks</li>
-	</ul>
 </section>
 
 
 <section>
-	<h1>Evaluating quality</h1>
+	<h1>Introduction: evaluating quality</h1>
 	<h2><img width="50px"src="assets/matlab.jpg" alt="">BSSeval v3</h2>
 	All metrics in dB. The higher, the better:
 	<ul>
@@ -585,9 +599,10 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Evaluating quality</h1>
+	<h1>Introduction: evaluating quality</h1>
 	<h2>Hands-on</h2>
 	<ul class="practice">
+		<li>Loop over some musdb tracks</li>
 		<li>Evaluate our separation system on musdb</li>
 		<li>Compare to state of the art (SiSEC18)</li>
 	</ul>
@@ -604,20 +619,20 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Basic fully connected layer</h2>
 	<img width="80%" src="assets/one_layer.svg" alt="">
 	<img class="fragment" style="float:right" width="60%" src="assets/non_linearities.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Basic fully connected network</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/several_layers.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Usual deep network</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/several_layers_general.svg" alt="">
 	<ul class="fragment">
@@ -627,61 +642,61 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: vocabulary</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/training_dataset.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: vocabulary</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/training_dataset_batch.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: vocabulary</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/training_dataset_learning.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: vocabulary</h2>
 	<img  style="margin-top:5%" width="100%" src="assets/one_epoch.gif" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:center" width="20%" src="assets/sample_supervised.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:center" width="73%" src="assets/sample_supervised_separation.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_0.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_1.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:center" width="100%" src="assets/training_networks_2.svg" alt="">
 </section>
 
 <section>
-	<h1>Deep neural networks</h1>
+	<h1>Introduction: deep neural networks</h1>
 	<h2>Training: the supervised approach</h2>
 	<img  style="margin-top:5%; float:right" width="43%" src="assets/gradient_descent.gif" alt="">
 	<ul>
@@ -701,6 +716,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 				<li>$\lambda$ is the <strong>learning rate</strong></li>
 			</ul>
 		</li>
+		<li>Batching is important</li>
 	</ul>
 	<p>
 	There are many other optimization algorithms...
@@ -714,17 +730,9 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</h6> -->
 </section>
 
-<!-- <section>
-	<h1>Deep neural networks</h1>
-	<h2>Automatic differentiation with pytorch autograd</h2>
-	<ul class="practice">
-		<li>Illustration of pytorch autograd</li>
-	</ul>
-</section>
- -->
 
 <section>
-	<h1>Deep neural networks: modeling temporal data</h1>
+	<h1>Introduction: modeling temporal data</h1>
 	<h6 style="margin-top:50%; color:gray">
 		colah's blog, <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a>, 2015.
 	</h6>
@@ -732,28 +740,28 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_1.svg" alt="">
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_2.svg" alt="">
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/time_distributed_dense.svg" alt="">
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>From fully connected to the simple recurrent net</h2>
 		<img  style="float:center" width="90%" src="assets/recurrent_layer_3.svg" alt="">
 	</section>
 
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The simple recurrent net</h2>
 		<img  style="float:left" width="24%" src="assets/recurrent_layer_4.svg" alt="">
 		<ul>
@@ -776,17 +784,17 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_1.svg" alt="">
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="100%" src="assets/lstm_2.svg" alt="">
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The long short term memory (LSTM)</h2>
 		<img  style="margin-top:2%; float:center" width="80%" src="assets/lstm_3.svg" alt="">
 	</section>
@@ -794,7 +802,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 
 <section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_1.svg" alt="">
 		<ul>
@@ -803,7 +811,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_2.svg" alt="">
 		<ul>
@@ -812,7 +820,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		</ul>
 	</section>
 	<section>
-		<h1>Deep neural networks: modeling temporal data</h1>
+		<h1>Introduction: modeling temporal data</h1>
 		<h2>The bi-LSTM</h2>
 		<img  style="margin-top:2%; float:left" width="50%" src="assets/blstm_3.svg" alt="">
 		<ul>
@@ -827,7 +835,17 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Our vanilla deep neural net for separation</h1>
+	<h1>Outline</h2>
+	<h2>Vanilla DNN for separation</h2>
+	<ul>
+		<li>Model</li>
+		<li>Spectrogram sampling</li>
+		<li>Test</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Vanilla DNN for separation: model</h1>
 	<img width="48%" style="margin-top:5%; float:left" src="assets/vanilla_lstm.svg" alt="">
 	<img width="20%" style="float:left" src="assets/vanilla.svg" alt="">
 	<ul style="margin-top:5%;">
@@ -842,7 +860,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Spectrogram sampling</h1>
+	<h1>Vanilla DNN for separation: spectrogram sampling</h1>
 	<img width="100%" style="float:center" src="assets/sample_supervised_temporal.svg" alt="">
 	<ul class="practice">
 		<li>Build a naive data sampler</li>
@@ -851,7 +869,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
-	<h1>Our vanilla deep neural net for separation</h1>
+	<h1>Vanilla DNN for separation: test</h1>
 	<img width="100%" style="float:center" src="assets/vanilla_lstm_test.svg" alt="">
 	<ul class="practice">
 		<li>Use the vanilla model for separation</li>
@@ -1033,7 +1051,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<!-- TAKE HOME -->
 		<p>
 		<ul>
-			<li>BLSTM require the <strong>same context length at train and test</strong>
+			<li>In practice: BLSTM require the <strong>same context length at train and test</strong>
 			<p>$\Rightarrow$ chop the data into batches at test time!</li>
 		</ul>
 
@@ -1210,10 +1228,6 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<ul style="margin-top:6%;">
 			<li>Regularization makes things worse</li>
 		</ul>
-		<!-- TAKE HOME -->
-		<ul  style="margin-top:4%;">
-			<li>is overfitting really bad/possible for us?</li>
-		</ul>
 	</section>
 </section>
 
@@ -1253,14 +1267,27 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 			<li>All samples per epoch</li>
 		</ul>
 	</section>
+	<section>
+		<h1>Training: sampling strategy</h1>
+		<h2>Hands on hierarchical sampling</h2>
+		<ul class="practice">
+			<li>Implement the 4 strategies with pescador</li>
+			<li>Apply they on spectrograms</li>
+		</ul>
+		<img width="22%" style="margin-top:30%; float:right" src="assets/mcfee.svg" alt="">
 
+
+	</section>
 	<section>
 		<h1>Training: sampling strategy</h1>
 		<img width="50%" style="margin-top:6%; float:left" src="assets/results/PLOT_17/loss.svg" alt="">
-		<ul style="margin-top:25%;">
-			<li>Unique tracks per batch not so useful</li>
-			<li>All samples per epoch is important</li>
+		<ul style="margin-top:5%;">
+			<li>Unique tracks per batch is slower</li>
+			<li>All samples per epoch is faster</li>
 		</ul>
+		<h6 style="margin-top:30%; color:gray">
+		B. Recht. "Beneath the valley of the noncommutative arithmetic-geometric mean inequality: conjectures, case-studies. and consequences." (2012). Technical report.
+		</h6>
 	</section>
 </section>
 
@@ -1401,7 +1428,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 </section>
 <section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:3%; float:center" width="70%" src="assets/joint_distribution_source_mix.svg" alt="">
 		<ul style="margin-top:3%">
 			<li>Sources and mixtures are jointly Gaussian</li>
@@ -1409,34 +1436,32 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		</ul>
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_1.svg" alt="">
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_2.svg" alt="">
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_3.svg" alt="">
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_4.svg" alt="">
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_6.svg" alt="">
 	</section>
 	<section>
-		<h1>The multichannel Wiener filter</h1>
+		<h1>Testing: the multichannel Wiener filter</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/joint_gaussian_7.svg" alt="">
 	</section>
-</section>
-<section>
+
 	<section>
-		<h1>The multichannel Wiener filter</h1>
-		<h2>Expectation maximization: the big picture</h2>
+		<h1>Testing: the Expectation-Maximization algorithm</h1>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/expectation_maximization_big_picture.svg" alt="">
 	</section>
 </section>
@@ -1451,14 +1476,20 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<h1>Testing: evaluation</h1>
 		<img width="55%" style="float:left" src="assets/results/test_boxplot.svg" alt="">
 		<ul>
-			<li>better SIR <p>
+			<li>Iterations improve SIR <p>
 			$\Rightarrow$ greatly reduces interferences</li>
-			<li>worse SAR<p>
+			<li>Iterations worsen SAR<p>
 			$\Rightarrow$ introduces distortion</li>
 			<li>logit has good SIR<p>
 				$\Rightarrow$ cheap interference reduction</li
 		</ul>
 		<img width="40%" style="float:left" src="assets/results/test_boxplot_legend.svg" alt="">
+	</section>
+
+	<section>
+		<h1>Testing: evaluation</h1>
+		<img width="15%" style="position:absolute; right:1%; top:5%" src="assets/cherry.svg" alt="">
+		<img width="100%" style="margin-top:10%; float:left" src="assets/results/boxplot_proposed.svg" alt="">
 	</section>
 </section>
 
@@ -1530,7 +1561,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		</ul>
 		<p>
 		<ul>
-			<li>We got 3dB improvement with no publishable contribution<p>
+			<li>We got 3dB SDR improvement with no publishable contribution<p>
 			$\Rightarrow$ evaluating the real impact of a contribution is difficult</li>
 		</ul>
 	</section>
