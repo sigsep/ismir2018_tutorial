@@ -8,8 +8,8 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/lirmm.css">
-
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+ 		<link href="fontawesome-free-5.3.1-web/css/all.css" rel="stylesheet">
+		<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/github.css">
@@ -81,6 +81,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<li>Automatic Karaoke</li>
 		<li>Creative Music Production</li>
 		<li>Personal Remixing</li>
+		<li>Upmixing (stereo $\Rightarrow$ 5.1)</li>
 		<li>Music Education</li>
 		<li>Pre-processing for MIR</li>
 	</ul>
@@ -110,22 +111,21 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/mix.jpg">
-	<h1><button data-audio="assets/demotrack/mixture.m4a">▶</button></h1>
-	<h1 style="margin-top:50%; color:white">Mixture spectrogram</h1>
+	<!-- <h1><button data-audio="assets/demotrack/mixture.m4a">▶</button></h1> -->
+	<h1 style="margin-top:5%; color:white">Mixture spectrogram</h1>
 </section>
-
 <section data-background-transition="none">
 	<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/vocals.jpg">
-		<h1><button data-audio="assets/demotrack/vocals.m4a">▶</button></h1>
-		<h1 style="margin-top:50%; color:white">Vocals spectrogram</h1>
+		<!-- <h1><button data-audio="assets/demotrack/vocals.m4a">▶</button></h1> -->
+		<h1 style="margin-top:5%; color:white">Vocals spectrogram</h1>
 	</section>
 	<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/drums.jpg">
-		<h1><button data-audio="assets/demotrack/drums.m4a">▶</button></h1>
-		<h1 style="margin-top:50%; color:white">Drums spectrogram</h1>
+		<!-- <h1><button data-audio="assets/demotrack/drums.m4a">▶</button></h1> -->
+		<h1 style="margin-top:5%; color:white">Drums spectrogram</h1>
 	</section>
 	<section data-background-transition="none" data-state="no-title-footer"  data-background-image="assets/demotrack/bass.jpg">
-		<h1><button data-audio="assets/demotrack/bass.m4a">▶</button></h1>
-		<h1 style="margin-top:50%; color:white">Bass spectrogram</h1>
+		<!-- <h1><button data-audio="assets/demotrack/bass.m4a">▶</button></h1> -->
+		<h1 style="margin-top:5%; color:white">Bass spectrogram</h1>
 	</section>
 </section>
 
@@ -714,14 +714,14 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</h6> -->
 </section>
 
-<section>
+<!-- <section>
 	<h1>Deep neural networks</h1>
 	<h2>Automatic differentiation with pytorch autograd</h2>
 	<ul class="practice">
 		<li>Illustration of pytorch autograd</li>
 	</ul>
 </section>
-
+ -->
 
 <section>
 	<h1>Deep neural networks: modeling temporal data</h1>
@@ -761,7 +761,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 			<li>Similar to a Markov model
 				<ul>
 					<li>Exponential decay of information</li>
-					<li>Vanishing gradient for training</li>
+					<li>Vanishing or exploding gradient for training</li>
 				</ul></li>
 		</ul>
 		<p>
@@ -858,7 +858,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</ul>
 </section>
 
-
 <section>
 	<h1>Outline</h1>
 	<h2>Choosing the right representation</h2>
@@ -881,12 +880,17 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 	<section>
 		<h1>Choosing the right representation: standardization</h1>
-		1. LOSS of vanilla [no standard, fixed, trainable]
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<img width="49%" style="float:center" src="assets/results/PLOT_2/loss.svg" alt="">
+		<img width="49%" style="float:center" src="assets/results/PLOT_2/boxplot.svg" alt="">
 		<ul>
-			<li>Input/output scaling always lead to better performance</li>
+			<li>Input/output scaling always lead to better loss</li>
 			<li>Trainable is better than fixed</li>
-			<li>We use scaling systematically</li>
+			<li>Good loss needs scaling, but no influence on SDR</li>
+		</ul>
+		<p>
+		<!-- TAKE HOME -->
+		<ul>
+			<li>We use scaling all the time</li>
 		</ul>
 	</section>
 </section>
@@ -894,18 +898,23 @@ An audio demo of the critical impact of engineering for the “same” system.
 <section>
 	<section>
 		<h1>Choosing the right representation: Fourier transform</h1>
-		<img width="100%" style="float:center" src="assets/FFT_parameters.svg" alt="">
-		<ul>
+		<img width="80%" style="margin-top:5%; float:center" src="assets/FFT_parameters.svg" alt="">
+		<ul style="margin-top:5%;">
 			<li>Network is always fed 360ms of context</li>
 		</ul>
 	</section>
 	<section>
 		<h1>Choosing the right representation: Fourier transform</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<img width="70%" style="float:center" src="assets/results/PLOT_3/boxplot.svg" alt="">
 		<ul>
 			<li><strong>Frames</strong>: 92ms=4096 samples @ 44k1kHz</li>
 			<li><strong>Overlap</strong>: 75%</li>
-			<li>all SDR<li>
+		</ul>
+			<!-- TAKE HOME -->
+			<p>
+			<ul>
+				<li>Long frames, large overlap</li>
+			</ul>
 		</ul>
 	</section>
 </section>
@@ -916,23 +925,32 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h2>Input dimensionality reduction</h2>
 		<img width="54%" style="float:left" src="assets/input_dimensionality_reduction.svg" alt="">
 		<ul>
-			<li>Reduce dimensionality in network?</li>
+			<li>Reduce number of parameters?
+				<ul>
+					<li>From 6 million to 500k</li>
+				</ul>
+			</li>
 			<li>Fixed or trainable reduction</li>
 			<li>Should we handcraft features?</li>
-			<li>VERIFY THE NETWORKS (to make it comparable)</li>
-			<li>CHECK #PARAMETERS (400k mel, 600k FC)</li>
 		</ul>
 	</section>
 	<section>
 		<h1>Choosing the right representation</h1>
 		<h2>Input dimensionality reduction</h2>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<img width="90%" style="float:center" src="assets/results/PLOT_4/boxplot.svg" alt="">
 		<ul>
-			<li>Hand-crafted features are not worth it</li>
-			<li>Learning representations is the way to go</li>
-			<li>PCA is an option, but computationally demanding for no real benefit</li>
-			<li>sdr between them is same</li>
-			<li>sdr with vanilla 4.2, here 4.1: drop of 0.1db but /10#parmaeters</li>
+			<li>Reducing dimension
+				<ul>
+					<li>Reduces model size</li>
+					<li>Gives bettter performance</li>
+				</ul>
+			</li>
+		</ul>
+
+		<!-- TAKE HOME -->
+		<p>
+		<ul>
+			<li>Don't handcraft features, train them</li>
 		</ul>
 	</section>
 </section>
@@ -948,21 +966,6 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<li>Skip connection</li>
 	</ul>
 </section>
-<!--
-<section>
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>Generative ideas</h2>
-		* Generative models (GAN) <p>
-		* Auto-encoders
-	</section>
-
-	<section>
-		<h1>DNN structures: a quick guided tour</h1>
-		<h2>Deep clustering</h2>
-	</section>
-
-</section> -->
 
 <section>
 	<section>
@@ -971,29 +974,73 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 	<section>
 		<h1>DNN structure: network dimension</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<h2>The more parameters, the better</h2>
+		<img width="40%" style="float:center" src="assets/results/PLOT_6/loss_layers_integrated.svg" alt="">
+		<img width="40%" style="float:center" src="assets/results/PLOT_6/loss_len_integrated.svg" alt="">
+		<ul style="margin-top:1%;">
+			<li>Context length not so important
+				<ul>
+					<li>LSTM unable to model long-term musical contexts?</li>
+				</ul>
+			</li>
+			<li>Hidden size (model dimension) has strong influene</li>
+		</ul>
+		<!-- TAKE HOME -->
+		<p>
 		<ul>
-			<li>The more parameters, the better</li>
-			<li>The more context, the better</li>
-			<li>factor plot of the loss</li>
-			<li>SDR for the smallest loss</li>
+			<li>Large models are good</li>
 		</ul>
 	</section>
+
+	<section>
+		<h1>DNN structure: network dimension</h1>
+		<h2>The more parameters, the better,  <font color="black">really?</font></h2>
+		<img width="100%" style="float:center" src="assets/results/PLOT_5/table.svg" alt="">
+		<ul style="margin-top:1%;">
+			<li>Moderate impact on SDR</li>
+			<li>Strong impact on SIR
+			<ul>
+				<li>Improves separation much</li>
+				<li>But not a huge impact as in loss</li>
+			</ul>
+		</ul>
+		<!-- TAKE HOME -->
+		<p>
+		<ul>
+			<li>Loss on spectrograms is <strong>not</strong> audio quality</li>
+		</ul>
+
+
+
+	</section>
+</section>
+
+<section>
 	<section>
 		<h1>DNN structure: LSTM vs BLSTM</h1>
 		<img width="60%" style="float:left" src="assets/structure_tuning_blstm.svg" alt="">
 	</section>
 	<section>
 		<h1>DNN structure: LSTM vs BLSTM</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<img width="39%" style="float:left" src="assets/results/PLOT_8/loss.svg" alt="">
+		<img width="60%" style="float:center" src="assets/results/PLOT_9/boxplot.svg" alt="">
+		<p>
 		<ul>
-			<li>all loss</li>
-			<li>all bsseval</li>
-
-			<li>BLSTM are better.</li>
-			<li>WHAT ABOUT BLSTM vs LSTM of TWICE THE SIZE ?</li>
+			<li>Loss is similar</li>
+			<li>BLSTM are better metric-wise</li>
 		</ul>
+
+		<!-- TAKE HOME -->
+		<p>
+		<ul>
+			<li>BLSTM require the <strong>same context length at train and test</strong>
+			<p>$\Rightarrow$ chop the data into batches at test time!</li>
+		</ul>
+
 	</section>
+</section>
+
+<section>
 	<section>
 		<h1>DNN structure: skip connection</h1>
 		<img width="42%" style="float:left" src="assets/structure_tuning_skip.svg" alt="">
@@ -1004,31 +1051,30 @@ An audio demo of the critical impact of engineering for the “same” system.
 	</section>
 	<section>
 		<h1>DNN structure: skip connection</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li>same scores more or less, but drums and bass get better</li>
-			<li>Seem to worsen SIR... but quantitative scores not clear</li>
-			<li>Let's listen to it!</li>
-			<li>PLAYER HERE?</li>
-			<li>all loss</li>
-			<li>all bsseval</li>
+		<img width="39%" style="float:left" src="assets/results/PLOT_10/loss.svg" alt="">
+		<img width="60%" style="float:center" src="assets/results/PLOT_11a/boxplot.svg" alt="">
+		<ul style="margin-top:2%;">
+			<li>Improves loss slightly</li>
+			<li>No effect on overall metrics</li>
 		</ul>
 	</section>
+	<section>
+		<h1>DNN structure: skip connection</h1>
+		<img width="40%" style="float:left" src="assets/results/PLOT_11b/boxplot.svg" alt="">
+		<ul>
+			<li>Better bass and drums</li>
+		</ul>
+	</section>
+</section>
+
 </section>
 
 <section>
 	<h1>Recap: current structure for the baseline</h1>
 	<img width="42%" style="float:left" src="assets/structure_after_tuning.svg" alt="">
-	<ul>
-		<li>CHECK SKIP</li>
-		<li>SIMILAR TO SOME REFERENCE ?</li>
-		<li>CHECK #PARAMS</li>
-	</ul>
-
+	<img width="40%" style="float:right" src="assets/results/PLOT_12/boxplot.svg" alt="">
 </section>
 
-
-<!-- TRAINING -->
 <section>
 	<h1>Outline</h1>
 	<h2>Training</h2>
@@ -1081,7 +1127,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 <section>
 	<section>
-		<h1>Training: learning rate</h1>
+		<h1>Training: learning rate and normalization</h1>
 		<img  style="margin-top:5%; float:left" width="33%" src="assets/gradient_descent_big.gif" alt="">
 		<img  style="margin-top:5%; float:center" width="33%" src="assets/gradient_descent.gif" alt="">
 		<img  style="margin-top:5%; float:right" width="27%" src="assets/learningrates.jpg" alt="">
@@ -1094,53 +1140,84 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 	</section>
 
 	<section>
-		<h1>Training: normalization</h1>
+		<h1>Training: learning rate and normalization</h1>
 		<img  style="margin-top:0%; float:left" width="80%" src="assets/structure_bnln.svg" alt="">
-		</section>
+	</section>
 
 	<section>
 		<h1>Training: learning rate and normalization</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li>Keep default parameters for learning rates</li>
-			<li>The impact of layernorm is unclear in metrics</li>
-			<li>PLAYER HERE?</li>
-			<li>explain that BN is shitty (mismatch train/test)</li>
-			<li>explain that learning rate must be 1e-3</li>
-			<li>explain that BN is shitty</li>
-			<li>explain that LN leads to better SIR but worst SDR vocals</li>
-			<li>all loss</li>
-			<li>bsseval for best learning rate, LN and no LN</li>
-			<li>decided to promote SDR vocals over SIR vocals.</li>
+		<img width="39%" style="margin-top:6%; float:left" src="assets/results/PLOT_13/loss.svg" alt="">
+		<ul style="margin-top:10%;">
+			<li>High learning rates don't work</li>
 		</ul>
+		<!-- TAKE HOME -->
+		<ul  style="margin-top:4%;">
+			<li>Keep default parameters for optim</li>
+		</ul>
+
+	</section>
+	<section>
+		<h1>Training: learning rate and normalization</h1>
+		<img width="49%" style="margin-top:6%; float:left" src="assets/results/PLOT_14/loss.svg" alt="">
+		<ul style="margin-top:6%;">
+			<li>batchnorm fails in our case
+			<ul>
+				<li>train batch: many songs</li>
+				<li>test batch: one song</li>
+			</ul>
+			<li style="margin-top:6%;">layernorm forces matching
+			<ul>
+				<li>test batch: normalized as in training</li>
+			</ul>
+			</li>
+		</ul>
+		<!-- TAKE HOME -->
+		<ul  style="margin-top:4%;">
+			<li>batchnorm behaves wildly, avoid it</li>
+		</ul>
+		<img width="20%" style="float:right" src="assets/true_story.svg" alt="">
+
 	</section>
 
-<section>
-	<h1>Training: regularization with dropout</h1>
-	<img  style="margin-top:5%; float:left" width="30%" src="assets/dropout.gif" alt="">
-	<ul style="margin-top:5%;">
-		<li>Parts of the net randomly set to 0</li>
-		<li>No unit should be critical: <i>regularization</i></li>
-		<li>Probabilistic interpretation</li>
-	</ul>
-	<h6 style="margin-top:30%; color:gray">
-		N Srivastava, et al. "Dropout: a simple way to prevent neural networks from overfitting". JMLR. (2014) 15(1), 1929-1958.
-	</h6>
+	<section>
+		<h1>Training: learning rate and normalization</h1>
+		<img width="75%" style="margin-top:6%; float:left" src="assets/results/PLOT_15/boxplot.svg" alt="">
+		<ul  style="margin-top:4%;">
+				<li>Improves isolation: better SIR</li>
+				<li>Adds distortion: worse SAR</li>
+		</ul>
+		PLAYER HERE SHOWING LN vs no LN.
+	</section>
 </section>
 
 <section>
-	<h1>Training: regularization with dropout</h1>
-	<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-	<ul>
-		<li>loss: which is worse so no SDR</li>
-		<li>Regularization does not really help</li>
-	</ul>
-</section>
+	<section>
+		<h1>Training: regularization with dropout</h1>
+		<img  style="margin-top:5%; float:left" width="30%" src="assets/dropout.gif" alt="">
+		<ul style="margin-top:5%;">
+			<li>Parts of the net randomly set to 0</li>
+			<li>No unit should be critical: <i>regularization</i></li>
+			<li>Probabilistic interpretation</li>
+		</ul>
+		<h6 style="margin-top:30%; color:gray">
+			N Srivastava, et al. "Dropout: a simple way to prevent neural networks from overfitting". JMLR. (2014) 15(1), 1929-1958.
+		</h6>
+	</section>
 
+	<section>
+		<h1>Training: regularization with dropout</h1>
+		<img width="40%" style="margin-top:6%; float:left" src="assets/results/PLOT_16/loss.svg" alt="">
+		<ul style="margin-top:6%;">
+			<li>Regularization makes things worse</li>
+		</ul>
+		<!-- TAKE HOME -->
+		<ul  style="margin-top:4%;">
+			<li>is overfitting really bad/possible for us?</li>
+		</ul>
+	</section>
 </section>
 
 <section>
-
 	<section>
 		<h1>Training: sampling strategy</h1>
 		<img width="64%" style="float:left" src="assets/twsw.gif" alt="">
@@ -1179,12 +1256,10 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 	<section>
 		<h1>Training: sampling strategy</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li>all loss</li>
-			<li>MISSING SDR of best loss</li>
+		<img width="50%" style="margin-top:6%; float:left" src="assets/results/PLOT_17/loss.svg" alt="">
+		<ul style="margin-top:25%;">
 			<li>Unique tracks per batch not so useful</li>
-			<li>All samples per epoch is much better</li>
+			<li>All samples per epoch is important</li>
 		</ul>
 	</section>
 </section>
@@ -1193,7 +1268,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 	<section>
 		<h1>Training: data augmentation</h1>
 		<img width="70%" style="float:center" src="assets/sample_overlap.svg" alt="">
-		<ul>
+		<ul style="margin-top:5%;">
 			<li>Basic augmentation: overlap samples within each track</li>
 			<li>There are more advanced strategies</li>
 		</ul>
@@ -1204,17 +1279,18 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 	<section>
 		<h1>Training: data augmentation</h1>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
-		<ul>
-			<li>Basic data augmentation is useful to some extent (0.5)</li>
+		<img width="49%" style="margin-top:6%; float:left" src="assets/results/PLOT_18/boxplot.svg" alt="">
+		<ul  style="margin-top:10%;">
+			<li>Basic augmentation helps a bit (0.5dB)</li>
+		</ul>
+		<!-- TAKE HOME -->
+		<ul  style="margin-top:4%;">
 			<li>Not shown: new tracks are better!</li>
-			<li>loss</li>
-			<li>bsseval: every thing</li>
 		</ul>
 	</section>
 </section>
 
-<section>
+<!-- <section>
 	<section>
 		<h1>Training: spectrogram quality</h1>
 		<ul>
@@ -1227,20 +1303,13 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<h1>Training: spectrogram quality</h1>
 		o Performance comparison
 	</section>
-</section>
+</section> -->
 
 <section>
-	<h1>Final baseline models</h1>
-	LSTM SKIP
-	<img  style="margin-top:0%; float:left" width="30%" src="assets/structure_final_OUM.svg" alt="">
-  LN no skip
-	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OUMLN.svg" alt="">
-</section>
-
-
-<section>
-	<h1>Final baseline models</h1>
-	vocal SDR and vocals SIR of these 2 vs sisec participants
+	<h1>Open Source Unmix (OSU) models</h1>
+	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OSU1.svg" alt="">
+	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OSU2.svg" alt="">
+	<img width="47%" style="float:left" src="assets/results/PLOT_19/boxplot.svg" alt="">
 </section>
 
 <!-- TESTING -->
@@ -1252,16 +1321,16 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<li>Mono filter tricks</li>
 		<li>Multichannel Gaussian model</li>
 		<li>The multichannel Wiener filter</li>
+		<li>Testing: evaluation</li>
 	</ul>
 </section>
-
 
 <section>
 	<h1>Testing: representations</h1>
 	<ul>
 		<li>The first source of poor results: inverse STFT!</li>
 		<li>Verify perfect reconstruction</li>
-		<li>Better: use established libraries</li>
+		<li>Better: use established libraries, like librosa, scipy...</li>
 	</ul>
 	<p>
 	<ul>
@@ -1271,7 +1340,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 </section>
 
 <section>
-	<section>
+	<!-- <section>
 		<h1>Testing: mono filter tricks</h1>
 		<h2>The huge impact of epsilons</h2>
 		<ul>
@@ -1285,7 +1354,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 			<li>Player with second option and $\epsilon=1e-3$</li>
 		</ul>
 	</section>
-
+ -->
 	<section>
 		<h1>Testing: mono filter tricks</h1>
 		<h2>Logit filters</h2>
@@ -1370,18 +1439,26 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 		<h2>Expectation maximization: the big picture</h2>
 		<img  style="margin-top:5%; float:left" width="100%" src="assets/expectation_maximization_big_picture.svg" alt="">
 	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Testing: evaluation</h1>
+		<img width="100%" style="float:left" src="assets/test_eval_settings.svg" alt="">
+	</section>
 
 	<section>
-		<h1>Testing: multichannel Wiener filters</h1>
-		<ul class="practice">
-			<li>Use norbert for filtering</li>
-		</ul>
-		<p>
-		<img width="100%" style="float:center" src="assets/dummy_results.svg" alt="">
+		<h1>Testing: evaluation</h1>
+		<img width="55%" style="float:left" src="assets/results/test_boxplot.svg" alt="">
 		<ul>
-			<li>First</li>
-			<li>Second</li>
+			<li>better SIR <p>
+			$\Rightarrow$ greatly reduces interferences</li>
+			<li>worse SAR<p>
+			$\Rightarrow$ introduces distortion</li>
+			<li>logit has good SIR<p>
+				$\Rightarrow$ cheap interference reduction</li
 		</ul>
+		<img width="40%" style="float:left" src="assets/results/test_boxplot_legend.svg" alt="">
 	</section>
 </section>
 
@@ -1399,11 +1476,12 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 <section>
 	<section>
-		<h1>Conclusion</h1>
-		<h2>Our resulting baseline</h2>
-		* A look at our baseline<p>
-		* overall importance of tricks<p>
-		* Performance comparison with state of the art<p>
+		<h1>Conclusion: the open source unmix</h1>
+		<img  style="margin-top:0%; float:left" width="29%" src="assets/results/boxplot_SDR_sisec.svg" alt="">
+		<img  style="margin-top:0%; float:center" width="31%" src="assets/results/pairwise_vocals_SDR.svg" alt="">
+		<img  style="margin-top:0%; float:center" width="31%" src="assets/results/pairwise_vocals_SIR.svg" alt="">
+		<img  style="margin-top:0%; float:center" width="31%" src="assets/results/pairwise_vocals_SAR.svg" alt="">
+		<img  style="margin-top:0%; float:center" width="24%" src="assets/mission_accomplished.svg" alt="">
 	</section>
 
 
@@ -1420,6 +1498,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 					<li>The convolutional neural network (CNN)</li>
 					<li>The U-NET</li>
 					<li>The MM-densenet</li>
+					<li>Deep clustering</li>
 				</ul>
 			</li>
 			<li>Generative approaches
@@ -1428,6 +1507,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 					<li>(Variational) auto encoders</li>
 				</ul>
 			</li>
+			<li>Deep clustering</li>
 		</ul>
 		<p>
 		<ul>
@@ -1496,6 +1576,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 				slideNumber: true,
 				minScale: 1,
 				maxScale: 5,
+				viewDistance: 30,
 				transition: 'none', //
 
 				dependencies: [
