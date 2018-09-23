@@ -45,39 +45,25 @@ var playlist = WaveformPlaylist.init({
 
 playlist.load([
   {
-    "src": "audio_x/mixture.m4a",
+    "src": "audio_biskip/mixture.m4a",
     "name": "Mixture",
     'soloed': true,
     'muted': true,
     "customClass": "mix",
   },
   {
-    "src": "audio_x/vocals.m4a",
-    "name": "Vocals",
-    'soloed': false,
-    'muted': false,
-    "customClass": "vocals"
-  },
-  {
-    "src": "audio_x/drums.m4a",
-    "name": "Drums",
+    "src": "audio_biskip/drums-bi.m4a",
+    "name": "Bidirectional",
     'soloed': false,
     'muted': false,
     "customClass": "drums"
   },
   {
-    "src": "audio_x/bass.m4a",
-    "name": "Bass",
+    "src": "audio_biskip/drums-skip.m4a",
+    "name": "Skip",
     'soloed': false,
     'muted': false,
-    "customClass": "bass"
-  },
-  {
-    "src": "audio_x/other.m4a",
-    "name": "Other",
-    'soloed': false,
-    'muted': false,
-    "customClass": "other"
+    "customClass": "drums"
   }
 ]).then(function() {
   //can do stuff with the playlist.
