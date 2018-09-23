@@ -243,7 +243,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<ul>
 			<li>Pitch detection</li>
 			<li>Clean voices</li>
-			<li>`Metallic` artifacts</li>
+			<li>"Metallic" artifacts</li>
 		</ul>
 		<!-- an example -->
 	</section>
@@ -877,6 +877,13 @@ An audio demo of the critical impact of engineering for the “same” system.
 </section>
 
 <section>
+	<h1>Vanilla DNN for separation: evaluation</h1>
+	<img width="90%" style="float:left" src="assets/results/PLOT_1/boxplot.svg" alt="">
+	<i class="fa fa-headphones"></i>
+</section>
+
+
+<section>
 	<h1>Outline</h1>
 	<h2>Choosing the right representation</h2>
 	<ul>
@@ -970,6 +977,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<ul>
 			<li>Don't handcraft features, train them</li>
 		</ul>
+		<i class="fa fa-headphones"></i>
 	</section>
 </section>
 
@@ -1025,7 +1033,8 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<!-- TAKE HOME -->
 		<p>
 		<ul>
-			<li>Loss on spectrograms is <strong>not</strong> audio quality</li>
+			<li>Loss on spectrograms is <strong>not</strong> audio quality		<i class="fa fa-headphones"></i>
+</li>
 		</ul>
 
 
@@ -1080,7 +1089,7 @@ An audio demo of the critical impact of engineering for the “same” system.
 		<h1>DNN structure: skip connection</h1>
 		<img width="40%" style="float:left" src="assets/results/PLOT_11b/boxplot.svg" alt="">
 		<ul>
-			<li>Better bass and drums</li>
+			<li>Better bass and drums <i class="fa fa-headphones"></i></li>
 		</ul>
 	</section>
 </section>
@@ -1204,7 +1213,9 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 				<li>Improves isolation: better SIR</li>
 				<li>Adds distortion: worse SAR</li>
 		</ul>
-		PLAYER HERE SHOWING LN vs no LN.
+		<p>
+		<i class="fa fa-headphones"></i>
+
 	</section>
 </section>
 
@@ -1337,6 +1348,7 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OSU1.svg" alt="">
 	<img  style="margin-top:0%; float:left" width="25%" src="assets/structure_final_OSU2.svg" alt="">
 	<img width="47%" style="float:left" src="assets/results/PLOT_19/boxplot.svg" alt="">
+	<i style="position:absolute; right:10%; bottom:10%" class="fa fa-headphones"></i>
 </section>
 
 <!-- TESTING -->
@@ -1356,13 +1368,8 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 	<h1>Testing: representations</h1>
 	<ul>
 		<li>The first source of poor results: inverse STFT!</li>
-		<li>Verify perfect reconstruction</li>
-		<li>Better: use established libraries, like librosa, scipy...</li>
-	</ul>
-	<p>
-	<ul>
-		<li>Image of a waveform with clicks every 512 samples</li>
-		<li>Player for this</li>
+		<li>Verify perfect reconstruction</li><p>
+		<li>Better: use established libraries, like <code>librosa</code>, <code>scipy</code>...</li>
 	</ul>
 </section>
 
@@ -1549,12 +1556,14 @@ $loss=\sum_{b\in batch, f,t} d\left(Y_b\left(f,t\right),\hat{Y}_b\left(f,t\right
 
 	<section>
 		<h1>Conclusion: what is promising</h1>
+		<h2>More data</h2>
 		<ul>
 			<li>More data</li>
 			<li>Even more data</li>
 			<li>Did we mention more data?</li>
 		</ul>
 		<p>
+		<h2>New approaches</h2>
 		<ul>
 			<li>Structures with more parameters work better...</li>
 			<li>Better signal processing helps</li>
